@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatih Maulana | Your casual IT guy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div id="mouse-glow"></div> 
+
+    <header id="navbar">
+        <div class="container">
+            <h1 class="logo">MaulanaFatih.dev</h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact" class="nav-button">Contact</a>
+            </nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="greeting">Hallo friends, i'm</p>
+                    <h1>FATIH MAULANA.</h1>
+                    <h2>Let's build the future with digital and safe solution.</h2>
+                    <p class="bio-summary">
+                        I’m Fatih, a Cybersecurity-driven developer diving deep into the Blockchain industry. My journey blends Web2 development, mobile prototyping, projects management, technical documentation, leadership and community empowerment and last but not least: a strong focus on digital security and system integrity.
+                    </p>
+                    <a href="#projects" class="cta-button">Come and join me into my journey..</a>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/fatihmaulana" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Fatihmaull" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:fatihmaulanamail@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                        
+                        <a href="https://wa.me/6289618465959" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="path/to/your/instagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="path/to/your/tiktok" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="path/to/your/medium" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+                        <a href="path/to/your/reddit" target="_blank" title="Reddit"><i class="fab fa-reddit"></i></a>
+                        <a href="path/to/your/twitter" target="_blank" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="section-padded">
+            <div class="container">
+                <h2 class="section-heading"><span class="number">01.</span> About me</h2>
+                <div class="about-flex">
+                    <div class="about-text">
+                        <p>Saya adalah seorang mahasiswa Teknik Informatika yang **passionate dan detail-oriented**, mahir dalam *software design and planning*, *full-stack web2 development*, dan *mobile app prototyping* menggunakan Flutter[cite: 4].</p>
+                        <p>Kekuatan saya terletak pada **logika berpikir** dan **problem-solving** tingkat lanjut, mampu memecah masalah kompleks dan merancang solusi yang efektif serta **scalable**[cite: 6].</p>
+                        <p>Saya memiliki fondasi kuat dalam **Cybersecurity**, termasuk jaringan, lingkungan Linux (Kali, Debian), dan pengembangan sistem yang aman[cite: 7].</p>
+                        <p>Berikut beberapa keahlian utama yang saya kuasai:</p>
+                        <div class="skills-list">
+                            <ul>
+                                <li>Next.js & Typescript</li>
+                                <li>Figma/UI-UX</li>
+                                <li>Kali Linux & Networking</li>
+                            </ul>
+                            <ul>
+                                <li>Java & Python (OOP)</li>
+                                <li>Technical Writing</li>
+                                <li>Project Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-placeholder">
+                         <div class="bento-grid-container" id="about-bento-grid">
+                            <div class="bento-item wide">
+                                <img src="path/to/foto-utama-anda.jpg" alt="Fatih Maulana Foto Utama">
+                            </div>
+                            <div class="bento-item tall">
+                                <img src="path/to/foto-aktivitas-1.jpg" alt="Fatih Maulana di Kegiatan A">
+                            </div>
+                            <div class="bento-item">
+                                <img src="path/to/foto-profesional.jpg" alt="Fatih Maulana Foto Close-up">
+                            </div>
+                            <div class="bento-item">
+                                <img src="path/to/logo-atau-ilustrasi.png" alt="Logo atau Ilustrasi Skill">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; width: 100%; margin-top: 50px;">
+                    <a class="cta-button" onclick="openFullDetailModal('About')">See Full Bio & Personal Journey</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="section-padded">
+            <div class="container">
+                <h2 class="section-heading"><span class="number">02.</span> Skils (Tech & Non-Tech)</h2>
+                
+                <div class="skills-grid">
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Development & Languages</h3>
+                        <ul>
+                            <li><a href="https://nextjs.org/" target="_blank">Next.js</a></li>
+                            <li>HTML, CSS, JS</li>
+                            <li>PHP (Laravel and Native)</li>
+                            <li><a href="https://www.java.com/" target="_blank">Java (OOP)</a></li>
+                            <li><a href="https://www.python.org/" target="_blank">Python</a></li>
+                            <li><a href="https://flutter.dev/" target="_blank">Flutter (Mobile App Prototyping)</a></li>
+                            <li>WordPress</li>
+                            <li>Rust</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Infrastructure</h3>
+                        <ul>
+                            <li><a href="https://www.kali.org/" target="_blank">Kali Linux</a></li>
+                            <li>Network Analytics using Nmap and Wireshark</li>
+                            <li>Secure System Design and Development</li>
+                            <li>System Design and Engineering</li>
+                            <li>Computer Hardware and Architecture</li>
+                            <li>Basic Penetration Testing</li>
+                            <li>Basic IT Risk and Governance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Tools, Design & Data</h3>
+                        <ul>
+                            <li><a href="https://www.figma.com/" target="_blank">Figma / UI-UX</a></li>
+                            <li>Prompt Engineering</li>
+                            <li>Notion Management</li>
+                            <li>Google Sheets and Excel</li>
+                            <li>Microsoft Workplace (Teams, Office, OneNote, OneDrive)</li>
+                            <li>Social Media Analytics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cogs"></i> Management & Soft Skills</h3>
+                        <ul>
+                            <li>Project Management</li>
+                            <li>Technical Writing</li>
+                            <li>Communication</li>
+                            <li>Team-work</li>
+                            <li>Storytelling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-globe"></i> Business & Languages</h3>
+                        <ul>
+                            <li>Software Ideation</li>
+                            <li>Translating Tech Languages into Human Languange</li>
+                            <li>Digital Marketing</li>
+                            <li>Budgetting and Finance</li>
+                            <li>Trading and Investing</li>
+                            <li>Bahasa Indonesia</li>
+                            <li>English</li>
+                            <li>Arabic</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-padded">
+            <div class="container">
+                <h2 class="section-heading"><span class="number">03.</span> Projects</h2>
+                
+                <div class="bento-grid-container project-bento-layout">
+                    
+                    <div class="bento-item large-square" onclick="openFullDetailModal('Projects')">
+                        <img src="path/to/project-0-ibunda-docs.jpg" alt="Ibunda.id Software Documentations">
+                        <div class="bento-content">
+                            <h4>Ibunda.id Docs (Technical Writer)</h4>
+                            <p>Tanggung jawab: Dokumen sistem dan manual untuk 3 produk. Tech: Golang, Laravel, AWS.</p>
+                            <a class="project-link" onclick="openFullDetailModal('Projects'); event.stopPropagation();">See More Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bento-item wide-top" onclick="openFullDetailModal('Projects')">
+                        <img src="path/to/project-1-studentxceos.jpg" alt="StudentxCEOs Grand Summit Website">
+                        <div class="bento-content">
+                            <h4>StudentxCEOs Grand Summit Web (FE)</h4>
+                            <p>Frontend Dev. Tech: Next.JS, TypeScript, Figma.</p>
+                            <a class="project-link" onclick="openFullDetailModal('Projects'); event.stopPropagation();">See More Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bento-item wide-mid-left" onclick="openFullDetailModal('Projects')">
+                        <img src="path/to/project-3-php-whistle.jpg" alt="PHP based campus whistle-blowing system">
+                        <div class="bento-content">
+                            <h4>PHP Whistle-blowing System</h4>
+                            <p>Role: Project Manager, Developer. Tech: PHP, MySQL.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item tall-right" onclick="openFullDetailModal('Projects')">
+                        <img src="https://via.placeholder.com/200x150?text=Banking+OOP" alt="Banking System Simulation">
+                        <div class="bento-content">
+                            <h4>Banking System Simulation</h4>
+                            <p>Java (OOP).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item small-bottom-left" onclick="openFullDetailModal('Projects')">
+                        <img src="https://via.placeholder.com/200x150?text=Flutter+UI" alt="Mobile E-commerce App Design">
+                        <div class="bento-content">
+                            <h4>Mobile E-commerce App</h4>
+                            <p>UI/UX, Flutter (Dart).</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-item small-bottom-mid" onclick="openFullDetailModal('Projects')">
+                        <img src="https://via.placeholder.com/200x150?text=Djikstra+Java" alt="Djikstra-based Pathfinding App">
+                        <div class="bento-content">
+                            <h4>Djikstra Pathfinding App</h4>
+                            <p>Java (OOP), Java Swing.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-item wide-bottom-3col" onclick="openFullDetailModal('Projects')">
+                        <img src="https://via.placeholder.com/200x150?text=Unity+Game" alt="Psychology-based Game Project">
+                        <div class="bento-content">
+                            <h4>Psychology-based Game</h4>
+                            <p>Project Manager. Tech: Unity, C#.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item tall-bottom-right" onclick="openFullDetailModal('Projects')">
+                        <img src="https://via.placeholder.com/200x300?text=IoT+C+Arduino" alt="IoT Item Counter System">
+                        <div class="bento-content">
+                            <h4>IoT Item Counter System</h4>
+                            <p>Embedded Systems Dev. Tech: Arduino, C.</p>
+                        </div>
+                    </div>
+                </div>
+                
+              
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a class="cta-button" onclick="openFullDetailModal('Projects')">See All 10 Projects Detail</a>
+                </div>
+        
+        <div class="project-buttons-container">
+                    <a href="https://drive.google.com/drive/folders/1REJJmX50y7WS61HWgm5SoKlU4nSi4sfY?usp=sharing" target="_blank" class="cta-button">See My Full Portfolio (2025) <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+      
+        </section>
+        
+        <section id="gallery" class="section-padded">
+            <div class="container">
+                <h2 class="section-heading"><span class="number">04.</span> Galeri Proyek & Sertifikasi</h2>
+                <p class="gallery-pitch">Kumpulan *screenshot*, desain UI/UX, atau sertifikasi. Klik pada gambar untuk melihat detail lebih besar. (Konten berputar otomatis)</p>
+                
+                <div id="rotating-bento-wrapper">
+                    <div class="bento-grid-container gallery-bento-layout active-slide" data-slide="1">
+                        <div class="bento-item wide-0" onclick="openModal('Item 0', 'path/to/foto/foto-01.jpg')">
+                            <img src="path/to/foto/foto-01.jpg" alt="Gallery Item 0">
+                            <div class="bento-content"><h4>Item 0</h4></div>
+                        </div>
+                        
+                        <div class="bento-item large-5" onclick="openModal('Item 05', 'path/to/foto/foto-02.jpg')">
+                            <img src="path/to/foto/foto-02.jpg" alt="Gallery Item 5">
+                            <div class="bento-content"><h4>Item 5</h4></div>
+                        </div>
+
+                        <div class="bento-item tall-10" onclick="openModal('Item 10', 'path/to/foto/foto-03.jpg')">
+                            <img src="path/to/foto/foto-03.jpg" alt="Gallery Item 10">
+                            <div class="bento-content"><h4>Item 10</h4></div>
+                        </div>
+
+                        <div class="bento-item small-14" onclick="openModal('Item 14', 'path/to/foto/foto-04.jpg')">
+                            <img src="path/to/foto/foto-04.jpg" alt="Gallery Item 14">
+                            <div class="bento-content"><h4>Item 14</h4></div>
+                        </div>
+                        
+                        <div class="bento-item small-1" onclick="openModal('Item 01', 'path/to/foto/foto-05.jpg')">
+                            <img src="path/to/foto/foto-05.jpg" alt="Gallery Item 1">
+                            <div class="bento-content"><h4>Item 1</h4></div>
+                        </div>
+
+                        <div class="bento-item tall-13" onclick="openModal('Item 13', 'path/to/foto/foto-06.jpg')">
+                            <img src="path/to/foto/foto-06.jpg" alt="Gallery Item 13">
+                            <div class="bento-content"><h4>Item 13</h4></div>
+                        </div>
+
+                        <div class="bento-item small-11" onclick="openModal('Item 11', 'path/to/foto/foto-07.jpg')">
+                            <img src="path/to/foto/foto-07.jpg" alt="Gallery Item 11">
+                            <div class="bento-content"><h4>Item 11</h4></div>
+                        </div>
+                        
+                        <div class="bento-item small-2" onclick="openModal('Item 02', 'path/to/foto/foto-08.jpg')">
+                            <img src="path/to/foto/foto-08.jpg" alt="Gallery Item 2">
+                            <div class="bento-content"><h4>Item 2</h4></div>
+                        </div>
+
+                        <div class="bento-item small-6" onclick="openModal('Item 06', 'path/to/foto/foto-09.jpg')">
+                            <img src="path/to/foto/foto-09.jpg" alt="Gallery Item 6">
+                            <div class="bento-content"><h4>Item 6</h4></div>
+                        </div>
+
+                        <div class="bento-item tall-15" onclick="openModal('Item 15', 'path/to/foto/foto-10.jpg')">
+                            <img src="path/to/foto/foto-10.jpg" alt="Gallery Item 15">
+                            <div class="bento-content"><h4>Item 15</h4></div>
+                        </div>
+
+                        <div class="bento-item small-7" onclick="openModal('Item 07', 'path/to/foto/foto-11.jpg')">
+                            <img src="path/to/foto/foto-11.jpg" alt="Gallery Item 7">
+                            <div class="bento-content"><h4>Item 7</h4></div>
+                        </div>
+                                                                
+                        <div class="bento-item small-3" onclick="openModal('Item 03', 'path/to/foto/foto-13.jpg')">
+                            <img src="path/to/foto/foto-13.jpg" alt="Gallery Item 3">
+                            <div class="bento-content"><h4>Item 3</h4></div>
+                        </div>
+
+                        <div class="bento-item small-16" onclick="openModal('Item 16', 'path/to/foto/foto-14.jpg')">
+                            <img src="path/to/foto/foto-14.jpg" alt="Gallery Item 16">
+                            <div class="bento-content"><h4>Item 16</h4></div>
+                        </div>
+                                            
+                        <div class="bento-item small-9" onclick="openModal('Item 09', 'path/to/foto/foto-16.jpg')">
+                            <img src="path/to/foto/foto-16.jpg" alt="Gallery Item 9">
+                            <div class="bento-content"><h4>Item 9</h4></div>
+                        </div>
+                                                
+                        <div class="bento-item wide-8" onclick="openModal('Item 08', 'path/to/foto/foto-18.jpg')">
+                            <img src="path/to/foto/foto-18.jpg" alt="Gallery Item 8">
+                            <div class="bento-content"><h4>Item 8 (Wide)</h4></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-grid-container gallery-bento-layout" data-slide="2">
+                        </div>
+                    <div class="bento-grid-container gallery-bento-layout" data-slide="3">
+                        </div>
+                    <div class="bento-grid-container gallery-bento-layout" data-slide="4">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section-padded">
+            <div class="container">
+                <h2 class="section-heading"><span class="number">05.</span> Pengalaman & Pendidikan</h2>
+                
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-link active" onclick="openTab(event, 'Organization')">Organisasi & Kerja</button>
+                        <button class="tab-link" onclick="openTab(event, 'Education')">Pendidikan Formal</button>
+                    </div>
+
+                    <div id="Organization" class="tab-content">
+                        <div class="exp-card">
+                            <h4 class="exp-title">Technical Writer <span class="exp-company">@ Ibunda.id</span></h4>
+                            <p class="exp-duration">2025</p>
+                            <ul>
+                                <li>Membuat dan memelihara dokumentasi sistem komprehensif dan panduan pengguna (per peran) untuk tiga produk inti.</li>
+                            </ul>
+                        </div>
+                        <div class="exp-card">
+                            <h4 class="exp-title">Front-end Developer <span class="exp-company">@ StudentXCEOs Chapter Bandung</span></h4>
+                            <p class="exp-duration">Feb 2025 – Jun 2025</p>
+                            <ul>
+                                <li>Mengembangkan dan memelihara antarmuka web responsif menggunakan Next.js dan TypeScript.</li>
+                            </ul>
+                        </div>
+                        <div class="exp-card">
+                            <h4 class="exp-title">Member of NALAR and Academic Board <span class="exp-company">@ HIMATIF UIN SGD</span></h4>
+                            <p class="exp-duration">Mar 2025 – Now</p>
+                            <ul>
+                                <li>Mengumpulkan, mengorganisir, dan mendistribusikan materi pembelajaran komprehensif.</li>
+                            </ul>
+                        </div>
+                        <div class="exp-card">
+                            <h4 class="exp-title">Head of Financial Literacy Department <span class="exp-company">@ CSSMORA UIN SGD</span></h4>
+                            <p class="exp-duration">Jul 2025 – Now</p>
+                            <ul>
+                                <li>Mengkoordinasikan tim untuk merancang dan mengimplementasikan kurikulum literasi keuangan.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="Education" class="tab-content" style="display: none;">
+                        <div class="exp-card">
+                            <h4 class="exp-title">Bachelor of Science in Informatics Engineering <span class="exp-company">@ Islamic State University Sunan Gunung Djati Bandung</span></h4>
+                            <p class="exp-duration">2023 – 2027</p>
+                            <p><strong>GPA: 3.96/4.0</strong>. Fokus: Distributed Computing, Cybersecurity, Blockchain and Networks.</p>
+                        </div>
+                        <div class="exp-card">
+                            <h4 class="exp-title">International Students Exchange Program (1 Semester) <span class="exp-company">@ Northern University of Malaysia (UUM)</span></h4>
+                            <p class="exp-duration">2025 – 2026</p>
+                            <p>Fokus: Software Development Management, Cybersecurity, Blockchain, IT Resources Management.</p>
+                        </div>
+                        <div class="exp-card">
+                            <h4 class="exp-title">Harvard CS50 Computer Science <span class="exp-company">@ edX, David J Malan</span></h4>
+                            <p class="exp-duration">2023 – 2024</p>
+                            <p>Fokus pada dasar ilmu komputer, pemecahan masalah berbasis algoritma, dan implementasi proyek.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a class="cta-button" onclick="openFullDetailModal('Experience')">See All History & Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padded">
+            <div class="container">
+                <h2 class="section-heading"><span class="number">06.</span> Hubungi Saya & Mari Berkolaborasi</h2>
+                
+                <p class="contact-pitch">
+                    Saat ini saya terbuka untuk peluang **magang** atau **kolaborasi proyek** di bidang *Cybersecurity*, *Software Development*, atau *Technical Writing*. Mari kita diskusikan potensi Anda!
+                </p>
+
+                <div class="contact-info-list">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:fatihmaulanamail@gmail.com">fatihmaulanamail@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lokasi: Jakarta, Indonesia | Kedah, Malaysia</p>
+                    
+                    <h3>Kunjungi Saya di:</h3>
+                    <div class="social-links-full">
+                        <a href="https://linkedin.com/in/fatihmaulana" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Fatihmaull" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="path/to/your/instagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="path/to/your/tiktok" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="path/to/your/medium" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+                        <a href="path/to/your/reddit" target="_blank" title="Reddit"><i class="fab fa-reddit"></i></a>
+                        <a href="path/to/your/twitter" target="_blank" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/6289618465959" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <form id="contact-form-professional" 
+      action="https://formspree.io/f/xovkyajq" 
+      method="POST">
+      
+    <h3>Connect with me</h3>
+    <p class="form-instruction">Notify me personally through my email for any inquiries</p>
+
+    <div class="input-group-row">
+        <div class="input-wrap">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="your name here" required>
+        </div>
+        <div class="input-wrap">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="_replyto" placeholder="youremail@gmail.com" required>
+        </div>
+    </div>
+    
+    <div class="input-wrap full-width" style="margin-bottom: 5px;">
+        <label for="subject">Subject or Role Offerred:</label>
+        <input type="text" id="subject" name="_subject" placeholder="Let's grab a coffe or i have a project offer for you..." required>
+    </div>
+
+    <div class="input-wrap full-width">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="I want to talk about..." rows="6" required></textarea>
+    </div>
+        
+    <button type="submit" class="cta-button send-button">Contact Me</button>
+</form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fatih Maulana. Didesain ulang menyerupai gaya Brittany Chiang.</p>
+        </div>
+    </footer>
+
+    <div id="full-detail-modal" class="modal" onclick="closeFullDetailModal()">
+        <span class="close-button" onclick="closeFullDetailModal()">&times;</span>
+        <div class="modal-content-wrapper detail-content-wrapper" onclick="event.stopPropagation()">
+            <h2 id="full-detail-title" class="full-modal-title"></h2>
+            <div id="full-detail-body" class="detail-scrollable full-modal-body">
+                </div>
+        </div>
+    </div>
+
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="close-button">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-image" id="modal-image-src" src="" alt="">
+            <h3 class="modal-caption" id="modal-image-caption"></h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
