@@ -100,107 +100,212 @@ const fullDetailContents = {
         title: "Perjalanan Hidup Pribadi & Rincian Profil",
         content: `
             <div class="modal-section">
-                <h3>Ringkasan & Filosofi</h3>
-                [cite_start]<p>Saya adalah mahasiswa Teknik Informatika yang **passionate dan detail-oriented**, mahir dalam *technical writing*, *project management*, *software design*, *full-stack web2 development*, dan *mobile app prototyping* menggunakan Flutter[cite: 4]. [cite_start]Saya membangun solusi yang **responsif** dan **berpusat pada pengguna** dengan kode yang efisien[cite: 5].</p>
-                [cite_start]<p>Kekuatan saya adalah **logika berpikir** dan **problem-solving** tingkat lanjut, mampu memecah masalah kompleks dan merancang solusi **scalable**[cite: 6].</p>
-                [cite_start]<p>Saya sangat antusias dengan **Cybersecurity**, memiliki dasar solid dalam jaringan, lingkungan Linux (Kali, Debian), dan pengembangan sistem yang aman[cite: 7].</p>
+                <h3>About me and my journey</h3>
+                <p>I’m Fatih Maul, an Informatics Engineering student with a strong passion for Cybersecurity, Blockchain, and the evolving world of AI research. My journey in tech started with simple curiosity — how systems work, how data flows, and how security defines trust in the digital age. That curiosity gradually evolved into a commitment: to understand technology not just as a tool, but as a foundation for a more secure and ethical digital world.</p>
+                <p>Over time, I’ve explored a wide range of disciplines — from full-stack Web2 development (Next.js & TypeScript) and mobile prototyping (Flutter) to software design, project management, and technical writing. Each experience helped me see technology as a bridge between logic and creativity, between building systems and understanding people who use them.</p>
+                <p>My current focus is on Cybersecurity, especially in areas like network defence, penetration testing, and Linux-based system hardening (Kali & Debian). I’m fascinated by how blockchain redefines digital trust and how AI can complement cybersecurity by automating detection, prediction, and resilience. For me, security isn’t just about preventing breaches — it’s about building confidence, transparency, and sustainability in technology.</p>
+                <p>Beyond the technical side, I’m also deeply involved in community and leadership. As part of CSS Agency and the CSSMoRA organisation, I’ve worked at the intersection of marketing, publication, and technology, helping teams transform ideas into impactful digital experiences. These roles strengthened my skills in communication, collaboration, and strategic thinking — essential traits for anyone aiming to lead in the tech industry.</p>
+                <p>I see technology as a reflection of our way of life. To me, being in tech means constantly learning, questioning, and adapting. I believe in a balanced approach — developing hard technical skills while staying grounded in curiosity, ethics, and purpose. My path forward is guided by one principle: build technology that empowers, protects, and inspires trust.</p>
+                <p>In the coming years, I aim to deepen my expertise in Cybersecurity, Blockchain Infrastructure, and AI-driven security systems — eventually leading toward my long-term goal of becoming a Chief Information Security Officer (CISO).</p>
             </div>
             
             <div class="modal-section">
-                <h3>Minat Kunci & Keahlian</h3>
+                <h3>Technical Focus</h3>
                 <ul class="tech-list-full">
-                    [cite_start]<li>Figma/UI-UX [cite: 10][cite_start]</li><li>Next.js [cite: 11][cite_start]</li><li>Kali Linux [cite: 17][cite_start]</li><li>Network Analytics [cite: 18][cite_start]</li><li>Java [cite: 19][cite_start]</li><li>Python [cite: 20][cite_start]</li><li>Project Management [cite: 25][cite_start]</li><li>Technical Writing [cite: 4][cite_start]</li><li>Storytelling [cite: 23][cite_start]</li><li>English [cite: 25]</li>
+                    <li>Cybersecurity & Network Analysis</li>
+                    <li>Blockchain Development & Smart Contract Logic</li>
+                    <li>AI-driven Security Research</li>
+                    <li>Next.js & TypeScript (Full-stack Web2)</li>
+                    <li>Flutter (Mobile Prototyping)</li>
+                    <li>Linux Environments (Kali, Debian)</li>
+                    <li>Java & Python (OOP)</li>
+                    <li>Figma / UI-UX Design</li>
+                    <li>Technical Writing & Storytelling</li>
+                    <li>Project Management</li>
                 </ul>
             </div>
         `
     },
     'Projects': {
-        title: "Daftar Lengkap Pengalaman Proyek",
-        content: `
-            <div class="modal-section">
-                <h3>Ibunda.id Software Documentations and User Manuals (2025)</h3>
-                <p><strong>Role: Technical Writer</strong></p>
-                [cite_start]<p>Menciptakan dan memelihara dokumentasi sistem komprehensif dan panduan pengguna (per peran) untuk **tiga produk inti** (dua website dan satu mobile application)[cite: 33]. [cite_start]Mengorganisir arsip sistem dan memastikan konsistensi dokumentasi antar tim[cite: 34].</p>
-                <ul class="tech-list-full">
-                    [cite_start]<li>Gitlab</li><li>Notion</li><li>Figma</li><li>Sonarqube</li><li>Laravel</li><li>Golang</li><li>CI/CD Pipeline</li><li>AWS [cite: 31]</li>
-                </ul>
-            </div>
-            
-            <div class="modal-section">
-                <h3>StudentxCEOs Grand Summit 14th Website (2025)</h3>
-                <p><strong>Role: Website Developer (Frontend)</strong></p>
-                [cite_start]<p>Mengembangkan *landing page* untuk acara Grand Summit yang berisi fungsi **login dan registrasi** pengguna[cite: 39, 40]. [cite_start]Mengembangkan dan memelihara antarmuka web responsif menggunakan **Next.js dan TypeScript**[cite: 131]. [cite_start]Menyampaikan *platform* siap produksi yang mendukung alur registrasi dan submission[cite: 134].</p>
-                <ul class="tech-list-full">
-                    [cite_start]<li>Next.JS</li><li>Typescript</li><li>Github</li><li>Postman</li><li>Figma [cite: 37]</li>
-                </ul>
-            </div>
+    title: "Complete Project Experience",
+    content: `
+        <div class="modal-section">
+            <h3>Ibunda.id Software Documentation and User Manuals (2025)</h3>
+            <p><strong>Role: Technical Writer</strong></p>
+            <p>Developed and maintained comprehensive <strong>system documentation</strong> and <strong>role-based user manuals</strong> for three core products — two web platforms and one mobile application. Structured technical archives and ensured documentation consistency across multidisciplinary teams, contributing to improved system maintainability and onboarding efficiency.</p>
+            <ul class="tech-list-full">
+                <li>GitLab</li><li>Notion</li><li>Figma</li><li>SonarQube</li><li>Laravel</li><li>Golang</li><li>CI/CD Pipeline</li><li>AWS</li>
+            </ul>
+        </div>
+        
+        <div class="modal-section">
+            <h3>StudentxCEOs Grand Summit 14th Website (2025)</h3>
+            <p><strong>Role: Frontend Developer</strong></p>
+            <p>Built a responsive <strong>event website</strong> for the Grand Summit 14th conference, integrating <strong>user authentication (login & registration)</strong> and a complete <strong>submission flow</strong> for participants. Implemented a scalable frontend architecture using <strong>Next.js and TypeScript</strong>, delivering a production-ready platform optimised for speed, reliability, and UX consistency.</p>
+            <ul class="tech-list-full">
+                <li>Next.js</li><li>TypeScript</li><li>GitHub</li><li>Postman</li><li>Figma</li>
+            </ul>
+        </div>
 
-            <div class="modal-section">
-                <h3>PHP based campus whistle-blowing system (2024)</h3>
-                <p><strong>Role: Project Manager, Website Developer</strong></p>
-                [cite_start]<p>Mengelola, merencanakan, dan mengembangkan website pelaporan keluhan fasilitas kampus dengan fungsionalitas CRUD, diimplementasikan menggunakan native PHP dan MySQL[cite: 45].</p>
-                <ul class="tech-list-full">
-                    [cite_start]<li>PHP</li><li>phpMyAdmin</li><li>HTML/CSS/JavaScript [cite: 43]</li>
-                </ul>
-            </div>
+        <div class="modal-section">
+            <h3>Campus Whistle-Blowing System (2024)</h3>
+            <p><strong>Role: Project Manager & Web Developer</strong></p>
+            <p>Led the development of a <strong>web-based reporting platform</strong> designed for campus facility complaints with full CRUD functionalities. Implemented backend architecture using <strong>native PHP and MySQL</strong>, ensuring data confidentiality, structured workflows, and role-based access for administrators and users.</p>
+            <ul class="tech-list-full">
+                <li>PHP</li><li>phpMyAdmin</li><li>HTML / CSS / JavaScript</li>
+            </ul>
+        </div>
 
-            <div class="modal-section">
-                <h3>Mobile E-commerce App Design and Prototype (2023-2024)</h3>
-                <p><strong>Role: UI/UX Designer, Mobile Developer</strong></p>
-                [cite_start]<p>Mengembangkan prototipe fungsional aplikasi mobile e-commerce dan merancang *user flow* dan *interface*, berfokus pada UI/UX dan basic state management[cite: 50].</p>
-                <ul class="tech-list-full">
-                    [cite_start]<li>Figma</li><li>Flutter (Dart) [cite: 49]</li>
-                </ul>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Proyek Lainnya (Rincian Singkat)</h3>
-                <ul>
-                    [cite_start]<li>**Banking System Simulation (2023):** Membangun aplikasi simulasi perbankan dengan fitur inti (deposit, withdrawal, transfer), mengimplementasikan konsep OOP di Java[cite: 60, 61].</li>
-                    [cite_start]<li>**Djikstra-based Pathfinding App (2024):** Membuat aplikasi GUI untuk demonstrasi algoritma Dijkstra, mengembangkan logika *graph* dan *pathfinding* menggunakan Java (OOP) dan Java Swing[cite: 66].</li>
-                    [cite_start]<li>**Psychology-based Game Project (2024):** Project Manager, memimpin tim 2 orang membangun prototipe game (Unity, C#)[cite: 71].</li>
-                    [cite_start]<li>**IoT Item Counter System (2024):** Embedded Systems Developer, membangun sistem penghitung item menggunakan sensor ultrasonik dan Arduino, diprogram dalam C[cite: 76].</li>
-                    [cite_start]<li>**Wordpress Blog and Website (2023):** Content Creator dan Web Admin, mengelola blog pribadi, mempraktikkan SEO basics[cite: 81].</li>
-                    [cite_start]<li>**Library Management System (2023):** Mengembangkan aplikasi desktop untuk manajemen perpustakaan, fokus pada input validation menggunakan Java (OOP)[cite: 86].</li>
-                </ul>
-            </div>
-        `
-    },
+        <div class="modal-section">
+            <h3>Mobile E-commerce App Design & Prototype (2023–2024)</h3>
+            <p><strong>Role: UI/UX Designer & Mobile Developer</strong></p>
+            <p>Designed and developed a <strong>functional mobile prototype</strong> for an e-commerce application focusing on user experience and interaction flow. Created wireframes and interactive mockups in Figma and implemented front-end logic using <strong>Flutter and Dart</strong>, introducing basic <strong>state management</strong> principles for smooth navigation.</p>
+            <ul class="tech-list-full">
+                <li>Figma</li><li>Flutter (Dart)</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>Banking System Simulation (2023)</h3>
+            <p><strong>Role: Software Developer</strong></p>
+            <p>Developed a desktop-based <strong>banking simulator</strong> featuring core functionalities such as deposit, withdrawal, and transfer. Applied strong <strong>Object-Oriented Programming (OOP)</strong> principles in Java to simulate transactional logic and user data management.</p>
+            <ul class="tech-list-full">
+                <li>Java (OOP)</li><li>IntelliJ IDEA</li><li>Database Integration</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>Dijkstra Pathfinding App (2024)</h3>
+            <p><strong>Role: Algorithm Developer</strong></p>
+            <p>Developed a GUI-based application that demonstrates <strong>Dijkstra’s Algorithm</strong> for shortest-path calculation. Implemented graph structures, traversal logic, and interactive visualization using <strong>Java Swing</strong> for educational and demonstrative purposes.</p>
+            <ul class="tech-list-full">
+                <li>Java</li><li>Java Swing</li><li>Algorithm Design</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>Psychology-based Game Project (2024)</h3>
+            <p><strong>Role: Project Manager & Game Developer</strong></p>
+            <p>Led a two-member development team to build a <strong>psychology-inspired prototype game</strong> exploring behavioural responses and player interaction. Oversaw project scope, design direction, and implementation using <strong>Unity and C#</strong>.</p>
+            <ul class="tech-list-full">
+                <li>Unity</li><li>C#</li><li>Game Design</li><li>Leadership</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>IoT Item Counter System (2024)</h3>
+            <p><strong>Role: Embedded Systems Developer</strong></p>
+            <p>Designed an <strong>IoT-based counting system</strong> using ultrasonic sensors and Arduino to detect and record item flow in real-time. Programmed in C and optimized for stable sensor communication and minimal hardware latency.</p>
+            <ul class="tech-list-full">
+                <li>Arduino</li><li>C Programming</li><li>Ultrasonic Sensor</li><li>Embedded Systems</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>WordPress Blog Platform (2023)</h3>
+            <p><strong>Role: Content Creator & Web Administrator</strong></p>
+            <p>Created and managed a personal <strong>WordPress blog</strong> focusing on technology and self-development topics. Applied <strong>SEO optimisation</strong> techniques and improved content structure to enhance online visibility and audience engagement.</p>
+            <ul class="tech-list-full">
+                <li>WordPress</li><li>SEO Basics</li><li>Web Administration</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>Library Management System (2023)</h3>
+            <p><strong>Role: Software Developer</strong></p>
+            <p>Developed a desktop application for <strong>library management</strong> with full CRUD capabilities and input validation. Built with Java using <strong>Object-Oriented Programming (OOP)</strong> principles and designed for efficient book tracking and user record management.</p>
+            <ul class="tech-list-full">
+                <li>Java (OOP)</li><li>GUI Application</li><li>Database Integration</li>
+            </ul>
+        </div>
+    `
+},
+
     'Experience': {
-        title: "Riwayat Organisasi, Pendidikan, dan Pelatihan",
-        content: `
-            <div class="modal-section">
-                <h3>Role Kunci (Technical & Leadership)</h3>
-                <h4>Technical Writer - Ibunda.id (2025)</h4>
-                [cite_start]<p>Menciptakan dan memelihara dokumentasi sistem komprehensif untuk tiga produk inti, memastikan konsistensi dan aksesibilitas[cite: 33].</p>
-                <h4>Front-end Developer - StudentXCEOs Chapter Bandung (Feb-Jun 2025)</h4>
-                [cite_start]<p>Mengembangkan dan memelihara antarmuka web responsif untuk *event homepage* dan *dashboard* Grand Summit ke-14 menggunakan **Next.js dan TypeScript**[cite: 131].</p>
-            </div>
+    title: "Riwayat Organisasi, Pendidikan, dan Pelatihan",
+    content: `
+        <div class="modal-section">
+            <h3>Key Roles (Technical & Leadership)</h3>
             
-            <div class="modal-section">
-                <h3>Pengalaman Organisasi</h3>
-                <ul>
-                    <li>**HIMATIF UIN SGD (Mar 2025 - Now):** Member of NALAR and Academic Board. [cite_start]Mendistribusikan materi pembelajaran, memfasilitasi *study group*, dan menyediakan bantuan akademik[cite: 138, 139].</li>
-                    <li>**CSSMORA UIN SGD (Jul 2025 - Now):** Head of Financial Literacy Department. [cite_start]Mengkoordinasikan tim untuk merancang kurikulum dan memfasilitasi *workshop* literasi keuangan[cite: 150, 158].</li>
-                    <li>**CSSMORA UIN SGD (Jun 2024 - Jul 2025):** Head of Marketing Bureau. [cite_start]Mengelola *branding*, promosi, dan kampanye digital, serta berkontribusi pada perencanaan strategis[cite: 144, 145].</li>
-                    <li>**AIESEC in Bandung (Oct 2023 - Jan 2024):** Delegates of AIESEC Future Leaders. [cite_start]Berpartisipasi aktif dalam diskusi penyelesaian *study case*[cite: 119, 121].</li>
-                    <li>**GDSC UIN Bandung (2023-2024):** Member. [cite_start]Terlibat dalam *technical workshops* dan proyek kolaboratif, familiar dengan Google *tools* dan praktik *open-source*[cite: 162].</li>
-                    <li>**OSMHA (Minhajul Haq Student Council) (2021-2022):** Secretary of Art Division. [cite_start]Mengelola dokumentasi resmi, mengkoordinasikan perencanaan acara seni, dan memantau anggaran divisi[cite: 166, 169].</li>
-                </ul>
+            <div class="project">
+                <h4>Founder & Full-stack Developer — CSS Agency (2024–Now)</h4>
+                <p>Founded and led a student-based media agency providing digital marketing and web development services. 
+                Built the core platform using <strong>Next.js</strong> and <strong>TypeScript</strong>, integrated API endpoints, 
+                and designed the automation structure for order processing. Focused on scalability and system security.</p>
             </div>
 
-            <div class="modal-section">
-                <h3>Pendidikan Formal & Pelatihan Kursus</h3>
-                <ul>
-                    [cite_start]<li>**Bachelor of Science in Informatics Engineering** - UIN SGD Bandung (2023-2027), GPA $3.96/4.0$[cite: 96]. [cite_start]Fokus: Cybersecurity, Blockchain, Networks[cite: 97].</li>
-                    <li>**International Students Exchange Program** - Northern University of Malaysia (UUM) (2025-2026). [cite_start]Fokus: Software Development Management, Cybersecurity, Blockchain[cite: 90, 92].</li>
-                    <li>**Harvard CS50 Computer Science** - edX (2023-2024). [cite_start]Fokus pada dasar ilmu komputer, algoritma, dan proyek implementasi[cite: 113].</li>
-                    [cite_start]<li>**Codingstudio.id course** (2023-2024): Fokus pada dasar *cybersecurity*, jenis serangan, dan eksplorasi kerentanan seperti OWASP 10[cite: 110].</li>
-                    [cite_start]<li>**Basic Cybersecurity, Penetration Testing, Linux Command, and Networking** (Pelatihan)[cite: 102].</li>
-                </ul>
+            <div class="project">
+                <h4>Technical Writer — Ibunda.id (2025)</h4>
+                <p>Created and maintained comprehensive system documentation for three core products, 
+                ensuring consistency, accessibility, and technical clarity for both internal and client use.</p>
             </div>
-        `
-    }
+
+            <div class="project">
+                <h4>Front-end Developer — StudentXCEOs Chapter Bandung (Feb–Jun 2025)</h4>
+                <p>Developed and maintained responsive web interfaces for the <em>Grand Summit 14th</em> 
+                event homepage and competition dashboard using <strong>Next.js</strong> and <strong>TypeScript</strong>. 
+                Collaborated with backend teams for seamless API integration and secure participant data management.</p>
+            </div>
+
+            <div class="project">
+                <h4>Cybersecurity Developer — Student Financial Aid System (2025)</h4>
+                <p>Built a secure financial aid management system using <strong>PHP Native</strong> with 
+                <strong>JWT authentication</strong>. Implemented file upload verification, role-based access control, 
+                and secure data distribution dashboards for admin and student users.</p>
+            </div>
+
+            <div class="project">
+                <h4>Blockchain Portfolio Project — Personal Research (2025)</h4>
+                <p>Currently developing a decentralized personal portfolio integrated with <strong>Solidity</strong> for 
+                backend smart contracts and hosted on a blockchain environment. Focused on transparency, digital identity, 
+                and cryptographic verification principles.</p>
+            </div>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Organisational Experience</h3>
+            <ul>
+                <li><strong>Head of Financial Literacy Department — CSSMoRA UIN SGD (Jul 2025–Now):</strong> 
+                    Coordinating a team to design literacy programs and host financial education workshops for scholarship recipients.</li>
+                <li><strong>Head of Marketing Bureau — CSSMoRA UIN SGD (Jun 2024–Jul 2025):</strong> 
+                    Managed digital campaigns, handled branding initiatives, and contributed to strategic growth planning.</li>
+                <li><strong>Head of Online Marketing — CSS Media Agency (2024–Now):</strong> 
+                    Led the digital marketing strategy, focusing on data-driven campaigns, conversion analytics, and SEO optimisation.</li>
+                <li><strong>Member of Academic Support & NALAR — HIMATIF UIN SGD (Mar 2025–Now):</strong> 
+                    Facilitated peer learning sessions, curated academic materials, and helped mentor junior students in technical areas.</li>
+                <li><strong>Delegate — AIESEC in Bandung (Oct 2023–Jan 2024):</strong> 
+                    Participated in strategic leadership workshops and real-world case study discussions.</li>
+                <li><strong>Member — GDSC UIN Bandung (2023–2024):</strong> 
+                    Engaged in collaborative technical projects, gaining exposure to Google’s open-source tools and best practices.</li>
+                <li><strong>Secretary of Art Division — OSMHA (2021–2022):</strong> 
+                    Managed event documentation, creative planning, and budgeting for art-related student initiatives.</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>Education & Training</h3>
+            <ul>
+                <li><strong>Bachelor of Science in Informatics Engineering</strong> — UIN Sunan Gunung Djati Bandung (2023–2027), GPA 3.96/4.0.<br>
+                Focus: <em>Cybersecurity, Blockchain, Artificial Intelligence, and Networks.</em></li>
+                
+                <li><strong>International Student Exchange Program</strong> — Northern University of Malaysia (UUM) (2025–2026).<br>
+                Focus: <em>Software Development Management, Cybersecurity, Blockchain Research.</em></li>
+                
+                <li><strong>Harvard CS50: Introduction to Computer Science</strong> — edX (2023–2024).<br>
+                Comprehensive study of computer science fundamentals, algorithms, and hands-on project implementation.</li>
+                
+                <li><strong>Codingstudio.id Course</strong> — (2023–2024).<br>
+                Introduction to cybersecurity fundamentals, attack types, and vulnerability exploration including OWASP Top 10.</li>
+                
+                <li><strong>Cybersecurity & Networking Bootcamp</strong> — (Private Training, 2024).<br>
+                Covered topics on penetration testing, Linux command line, and network configuration using Kali & Debian environments.</li>
+
+                <li><strong>AI & Quantitative Finance Research</strong> — (Independent Study, 2025).<br>
+                Conducted regression-based analysis on altcoin price trends using <strong>Python</strong> for quantitative finance modelling.</li>
+            </ul>
+        </div>
+    `
+}
 };
 
 // Fungsi untuk membuka modal detail penuh (Dipicu oleh tombol "See More")

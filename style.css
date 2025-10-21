@@ -247,9 +247,54 @@ h2 {
 
 /* ABOUT PHOTO COLUMN (Diperbarui untuk Bento) */
 .profile-placeholder {
-    flex: 2; /* Beri lebih banyak ruang untuk grid foto */
+    /* Gunakan nilai eksplisit untuk Flexbox agar foto mengambil porsi yang tepat di samping teks */
+    flex: 2; /* Mengambil 2 bagian dari 5 total bagian di .about-flex (2/5 lebar) */
     position: relative;
     max-width: 400px;
+    margin-left: 50px; /* Tambahkan sedikit jarak dari teks */
+    margin-top: -90px;
+}
+
+/* --- GAYA KHUSUS BENTO ABOUT (1 KOLOM STACKED) --- */
+
+.bento-grid-container.about-stacked-layout {
+    /* PENTING: Paksa Grid untuk hanya memiliki 1 kolom di desktop */
+    grid-template-columns: 1fr;
+    /* Atur agar baris memiliki tinggi yang seragam dan besar */
+    grid-auto-rows: minmax(280px, auto); /* Tinggi item dinaikkan */
+    gap: 15px; 
+}
+
+/* Memastikan item di layout ini mengambil lebar penuh */
+.about-stacked-layout .bento-item {
+    grid-column: 1 / span 1 !important; /* Ambil 1 kolom penuh */
+    grid-row: span 1 !important;
+}
+
+/* Override untuk item besar lama yang mungkin menyebabkan masalah */
+.about-stacked-layout .bento-item.wide,
+.about-stacked-layout .bento-item.tall {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+}
+
+/* Override Mobile: Di Mobile, tata letak ini secara alami sudah 1 kolom */
+@media (max-width: 768px) {
+    .bento-grid-container.about-stacked-layout {
+        /* Pertahankan gap yang sama */
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(250px, auto);
+    }
+}
+
+/* Override Mobile: Pastikan di mobile, kolom foto menjadi 100% lebar */
+@media (max-width: 768px) {
+    .profile-placeholder {
+        flex: none; /* Nonaktifkan Flexbox porsi */
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+    }
 }
 
 /* 4. Skills Section */
@@ -334,7 +379,8 @@ h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Default 3 kolom di desktop */
     gap: 15px; 
-    margin-top: 30px;
+    margin-top: auto;
+    margin-bottom: 100px;
 }
 
 .bento-item {
@@ -922,7 +968,7 @@ footer {
 #rotating-bento-wrapper {
     position: relative;
     /* Memberi tinggi agar transisi slide tidak membuat layout melompat */
-    min-height: 1100px; 
+    min-height: 1820px; 
     overflow: hidden;
     margin-bottom: 1px;
 }
@@ -946,9 +992,6 @@ footer {
     opacity: 1;
     z-index: 10;
 }
-
-
-/* DEFINISI PENEMPATAN BENTO BERDASARKAN GAMBAR (Start / End) */
 
 /* Kolom 1-2-3-4, Baris 1-2-3-4 */
 
@@ -1025,8 +1068,6 @@ footer {
     margin-top: 30px;
     margin-bottom: 15px;
 }
-
-/* Ganti di file style.css Anda */
 
 /* --- FORM KONTAK PROFESSIONAL BARU --- */
 
@@ -1168,3 +1209,4 @@ footer {
     border-radius: 6px;
     text-align: center;
 }
+
