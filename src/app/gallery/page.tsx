@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Navigation, Footer, Container } from '@/components/layout';
@@ -30,6 +29,32 @@ const FolderIcon = () => (
     </svg>
 );
 
+// Map project IDs to specific images that match their themes
+const projectImages: Record<number, string> = {
+    1: '/images/hero.jpg', // Quantum Higgs Boson - research/quantum theme
+    2: '/images/game.png', // Rivalry Mobile App - mobile/gaming theme
+    3: '/images/work.jpg', // National Voting System - work/professional
+    4: '/images/iot.png', // Changlun Smart Agriculture - IoT theme
+    5: '/images/tw.png', // Bitcoin EMH Analysis - trading/finance
+    6: '/images/javaoop.png', // Neural Network Visualizer - coding/tech
+    7: '/images/xchange.jpg', // DeFi Liquidity Aggregator - blockchain/finance
+    8: '/images/about1.png', // Satellite Imagery Analysis - geospatial
+    9: '/images/css.jpg', // Encrypted Chat Protocol - security/coding
+    10: '/images/tw2.png', // High-Frequency Trading Bot - trading
+    11: '/images/GAME PSI (4).png', // Generative Art Engine - creative/art
+    12: '/images/work.jpg', // Distributed File System - systems/work
+    13: '/images/iot.png', // Smart Home Hub - IoT
+    14: '/images/hero.jpg', // Quantum Key Distribution - quantum
+    15: '/images/school.jpg', // Bioinformatics DNA Sequencer - research/education
+    16: '/images/wordpress dan blog (2).png', // Technical Documentation System - documentation/writing
+    17: '/images/javaoop.png', // Sentiment Analysis with SVM - ML/coding
+    18: '/images/css.jpg', // Microservices API Documentation - API/architecture
+    19: '/images/psde.jpg', // Code Quality Monitoring - DevOps/monitoring
+    20: '/images/php.png', // Next.js SSR Optimization - web dev
+    21: '/images/sxc.png', // CI/CD Pipeline - DevOps/automation
+    22: '/images/volunteer.jpg', // Virtual Event Infrastructure - infrastructure/events
+};
+
 export default function GalleryPage() {
     return (
         <>
@@ -60,70 +85,97 @@ export default function GalleryPage() {
                                 square: '',
                             };
 
+                            const backgroundImage = projectImages[project.id] || '/images/work.jpg';
+
                             return (
                                 <article
                                     key={project.id}
                                     className={cn(
-                                        'group relative flex flex-col',
-                                        'bg-[var(--navy-light)] rounded-lg p-8',
+                                        'group relative flex flex-col overflow-hidden',
+                                        'rounded-lg p-8',
                                         'border border-[var(--navy-lighter)]/50',
                                         'hover:border-[var(--accent)]/30 hover:-translate-y-2',
                                         'transition-all duration-300 ease-out',
                                         'hover:shadow-xl hover:shadow-[var(--shadow-color)]',
                                         sizeClasses[project.size as keyof typeof sizeClasses]
                                     )}
+                                    style={{
+                                        backgroundImage: `url(${backgroundImage})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        backgroundRepeat: 'no-repeat',
+                                    }}
                                 >
-                                    {/* Top row - folder and links */}
-                                    <div className="flex items-center justify-between mb-6">
-                                        <span className="text-[var(--accent)]">
-                                            <FolderIcon />
-                                        </span>
+                                    {/* Gradient overlay: dark at top and bottom, transparent in middle */}
+                                    <div 
+                                        className="absolute inset-0 transition-opacity duration-300"
+                                        style={{
+                                            background: `linear-gradient(
+                                                to bottom,
+                                                rgba(30, 41, 59, 0.95) 10%,
+                                                rgba(30, 41, 59, 0.85) 25%,
+                                                rgba(30, 41, 59, 0.3) 45%,
+                                                rgba(30, 41, 59, 0.3) 55%,
+                                                rgba(30, 41, 59, 0.85) 78%,
+                                                rgba(30, 41, 59, 0.95) 80%
+                                            )`
+                                        }}
+                                    />
 
-                                        <div className="flex items-center gap-4">
-                                            <Link
-                                                href={project.link || '#'}
-                                                className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
-                                                aria-label="View on GitHub"
-                                            >
-                                                <GitHubIcon />
-                                            </Link>
-                                            <Link
-                                                href={project.link || '#'}
-                                                className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
-                                                aria-label="Read Blog Post"
-                                            >
-                                                <ExternalLinkIcon />
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                    {/* Project Title */}
-                                    <h3 className="text-2xl font-bold text-[var(--slate-light)] mb-3 group-hover:text-[var(--accent)] transition-colors">
-                                        <Link href={project.link || '#'}>
-                                            {project.title}
-                                        </Link>
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p className="text-[var(--slate)] text-base leading-relaxed flex-grow mb-6">
-                                        {project.description}
-                                    </p>
-
-                                    {/* Tags */}
-                                    <div className="flex flex-wrap gap-2 mt-auto">
-                                        {project.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="text-xs font-mono text-[var(--accent)]/90 bg-[var(--accent)]/10 px-2.5 py-1 rounded-full"
-                                            >
-                                                {tag}
+                                    {/* Content - relative z-index to appear above background */}
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        {/* Top row - folder and links */}
+                                        <div className="flex items-center justify-between mb-6">
+                                            <span className="text-[var(--accent)]">
+                                                <FolderIcon />
                                             </span>
-                                        ))}
+
+                                            <div className="flex items-center gap-4">
+                                                <Link
+                                                    href={project.link || '#'}
+                                                    className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
+                                                    aria-label="View on GitHub"
+                                                >
+                                                    <GitHubIcon />
+                                                </Link>
+                                                <Link
+                                                    href={project.link || '#'}
+                                                    className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
+                                                    aria-label="Read Blog Post"
+                                                >
+                                                    <ExternalLinkIcon />
+                                                </Link>
+                                            </div>
+                                        </div>
+
+                                        {/* Project Title */}
+                                        <h3 className="text-2xl font-bold text-[var(--slate-light)] mb-3 group-hover:text-[var(--accent)] transition-colors">
+                                            <Link href={project.link || '#'}>
+                                                {project.title}
+                                            </Link>
+                                        </h3>
+
+                                        {/* Description */}
+                                        <p className="text-[var(--slate)] text-base leading-relaxed flex-grow mb-6">
+                                            {project.description}
+                                        </p>
+
+                                        {/* Tags */}
+                                        <div className="flex flex-wrap gap-2 mt-auto">
+                                            {project.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="text-xs font-mono text-[var(--accent)]/90 bg-[var(--accent)]/10 px-2.5 py-1 rounded-full"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
 
                                     {/* Featured badge for large cards */}
                                     {project.featured && (
-                                        <div className="absolute top-0 right-0 px-3 py-1 bg-[var(--accent)] text-[var(--navy)] font-mono text-xs font-bold uppercase tracking-wider rounded-bl-lg rounded-tr-lg">
+                                        <div className="absolute top-0 right-0 z-20 px-3 py-1 bg-[var(--accent)] text-[var(--navy)] font-mono text-xs font-bold uppercase tracking-wider rounded-bl-lg rounded-tr-lg">
                                             Featured
                                         </div>
                                     )}

@@ -27,6 +27,25 @@ const socialIcons = {
 
 const sectionIds = ['about', 'experience', 'projects', 'gallery'];
 
+// Map project IDs to specific images that match their themes
+const projectImages: Record<number, string> = {
+  1: '/images/hero.jpg', // Quantum Higgs Boson - research/quantum theme
+  2: '/images/game.png', // Rivalry Mobile App - mobile/gaming theme
+  3: '/images/work.jpg', // National Voting System - work/professional
+  4: '/images/iot.png', // Changlun Smart Agriculture - IoT theme
+  5: '/images/tw.png', // Bitcoin EMH Analysis - trading/finance
+  6: '/images/javaoop.png', // Neural Network Visualizer - coding/tech
+  7: '/images/xchange.jpg', // DeFi Liquidity Aggregator - blockchain/finance
+  8: '/images/about1.png', // Satellite Imagery Analysis - geospatial
+  9: '/images/css.jpg', // Encrypted Chat Protocol - security/coding
+  10: '/images/tw2.png', // High-Frequency Trading Bot - trading
+  11: '/images/GAME PSI (4).png', // Generative Art Engine - creative/art
+  12: '/images/work.jpg', // Distributed File System - systems/work
+  13: '/images/iot.png', // Smart Home Hub - IoT
+  14: '/images/hero.jpg', // Quantum Key Distribution - quantum
+  15: '/images/school.jpg', // Bioinformatics DNA Sequencer - research/education
+};
+
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState('about');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -496,6 +515,8 @@ export default function HomePage() {
                     square: '',
                   };
 
+                  const backgroundImage = projectImages[project.id] || '/images/work.jpg';
+
                   return (
                     <motion.article
                       key={project.id}
@@ -504,62 +525,87 @@ export default function HomePage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       className={cn(
-                        'group relative flex flex-col',
-                        'bg-slate-800/50 rounded-lg p-6',
+                        'group relative flex flex-col overflow-hidden',
+                        'rounded-lg p-6',
                         'border border-slate-700/50',
                         'hover:border-teal-300/30 hover:-translate-y-1',
                         'transition-all duration-300 ease-out',
                         'hover:shadow-lg hover:shadow-teal-900/20',
                         sizeClasses[project.size as keyof typeof sizeClasses] || ''
                       )}
+                      style={{
+                        backgroundImage: `url(${backgroundImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }}
                     >
-                      {/* Top row - folder and links */}
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="text-teal-300">
-                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                          </svg>
-                        </span>
+                      {/* Gradient overlay: dark at top and bottom, transparent in middle */}
+                      <div 
+                        className="absolute inset-0 transition-opacity duration-500"
+                        style={{
+                          background: `linear-gradient(
+                            to bottom,
+                            rgba(30, 41, 59, 0.95) 10%,
+                            rgba(30, 41, 59, 0.85) 25%,
+                            rgba(30, 41, 59, 0.3) 45%,
+                            rgba(30, 41, 59, 0.3) 55%,
+                            rgba(30, 41, 59, 0.85) 78%,
+                            rgba(30, 41, 59, 0.95) 80%
+                          )`
+                        }}
+                      />
 
-                        <div className="flex items-center gap-4">
-                          <Link
-                            href={project.link || '#'}
-                            className="text-slate-400 hover:text-teal-300 transition-colors"
-                            aria-label="View on GitHub"
-                          >
-                            {socialIcons.github}
-                          </Link>
-                          <Link
-                            href={project.link || '#'}
-                            className="text-slate-400 hover:text-teal-300 transition-colors"
-                            aria-label="Read Blog Post"
-                          >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      {/* Content - relative z-index to appear above background */}
+                      <div className="relative z-10 flex flex-col h-full">
+                        {/* Top row - folder and links */}
+                        <div className="flex items-center justify-between mb-6">
+                          <span className="text-teal-300">
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                             </svg>
-                          </Link>
-                        </div>
-                      </div>
-
-                      {/* Project Title */}
-                      <h3 className="text-xl font-semibold text-slate-200 mb-3 group-hover:text-teal-300 transition-colors">
-                        <Link href={project.link || '#'}>
-                          {project.title}
-                        </Link>
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-                        {project.description}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.tags.slice(0, 4).map((tag) => (
-                          <span key={tag} className="text-xs font-mono text-teal-300/90 bg-teal-400/10 px-2 py-1 rounded">
-                            {tag}
                           </span>
-                        ))}
+
+                          <div className="flex items-center gap-4">
+                            <Link
+                              href={project.link || '#'}
+                              className="text-slate-400 hover:text-teal-300 transition-colors"
+                              aria-label="View on GitHub"
+                            >
+                              {socialIcons.github}
+                            </Link>
+                            <Link
+                              href={project.link || '#'}
+                              className="text-slate-400 hover:text-teal-300 transition-colors"
+                              aria-label="Read Blog Post"
+                            >
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* Project Title */}
+                        <h3 className="text-xl font-semibold text-slate-200 mb-3 group-hover:text-teal-300 transition-colors">
+                          <Link href={project.link || '#'}>
+                            {project.title}
+                          </Link>
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+                          {project.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                          {project.tags.slice(0, 4).map((tag) => (
+                            <span key={tag} className="text-xs font-mono text-teal-300/90 bg-teal-400/10 px-2 py-1 rounded">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </motion.article>
                   );
