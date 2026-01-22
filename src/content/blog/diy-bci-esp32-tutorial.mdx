@@ -1,0 +1,67 @@
+---
+title: "Building a Low-Cost Brain-Computer Interface (BCI) with ESP32 and C++"
+description: "Tutorial on creating an affordable BCI system using embedded hardware."
+date: "2025-12-28"
+tags: ["Hardware", "ESP32", "C++", "Tutorial"]
+readTime: "15 min"
+---
+
+# Building a Low-Cost Brain-Computer Interface
+
+*ESP32 + EEG Sensors = Under $50 BCI*
+
+Brain-Computer Interfaces have traditionally been expensive research tools. In this tutorial, we'll build a functional BCI for under $50 using readily available components.
+
+## Components Needed
+
+| Component | Purpose | Cost |
+|-----------|---------|------|
+| ESP32 DevKit | Main processor | $8 |
+| AD8232 ECG/EEG Module | Signal acquisition | $12 |
+| Dry EEG Electrodes x3 | Brain signal pickup | $15 |
+| Misc (wires, case) | Assembly | $10 |
+
+## Architecture Overview
+
+```
+[Electrodes] → [AD8232 Amplifier] → [ESP32 ADC] → [WiFi] → [Python Analysis]
+```
+
+## Signal Processing Pipeline
+
+```cpp
+#include <Arduino.h>
+#include <WiFi.h>
+
+const int EEG_PIN = 34;
+const int SAMPLE_RATE = 256; // Hz
+
+void setup() {
+  analogSetAttenuation(ADC_6db);
+  analogReadResolution(12);
+  
+  // Initialize WiFi for data streaming
+  WiFi.begin(SSID, PASSWORD);
+}
+
+void loop() {
+  int rawSignal = analogRead(EEG_PIN);
+  
+  // Apply digital filtering
+  float filtered = bandpassFilter(rawSignal, 8, 30); // Alpha/Beta bands
+  
+  // Stream via WebSocket
+  sendToServer(filtered);
+  
+  delayMicroseconds(1000000 / SAMPLE_RATE);
+}
+```
+
+## Applications
+
+Once built, you can use this BCI for:
+- Alpha wave meditation feedback
+- Focus/attention monitoring
+- Simple motor imagery detection
+
+*Full build guide with PCB designs coming soon.*

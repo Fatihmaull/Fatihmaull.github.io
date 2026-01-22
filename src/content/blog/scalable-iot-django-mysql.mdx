@@ -1,0 +1,74 @@
+---
+title: "Designing Scalable IoT Backends with Django and MySQL"
+description: "Architecture patterns for handling high-volume sensor data."
+date: "2025-11-28"
+tags: ["IoT", "Django", "Backend"]
+readTime: "10 min"
+---
+
+# Designing Scalable IoT Backends
+
+*Django + MySQL for High-Volume Sensor Data*
+
+The Changlun Smart Agriculture project taught us valuable lessons about handling IoT data at scale. Here's what we learned.
+
+## The Challenge
+
+Our requirements:
+- 500+ IoT sensors
+- 10-second data intervals
+- 6 months data retention
+- Real-time dashboards
+
+That's **1.3 billion rows per year**.
+
+## Architecture Overview
+
+```
+[Sensors] → [MQTT Broker] → [Django Consumers] → [MySQL TimeSeries]
+                                    ↓
+                            [Redis Cache] → [Dashboard API]
+```
+
+## Database Design
+
+```sql
+-- Partitioned by month for efficient queries
+CREATE TABLE sensor_readings (
+    id BIGINT AUTO_INCREMENT,
+    sensor_id INT NOT NULL,
+    reading_type VARCHAR(50),
+    value DECIMAL(10,4),
+    recorded_at DATETIME NOT NULL,
+    PRIMARY KEY (id, recorded_at),
+    KEY idx_sensor_time (sensor_id, recorded_at)
+) PARTITION BY RANGE (TO_DAYS(recorded_at)) (
+    PARTITION p_2025_01 VALUES LESS THAN (TO_DAYS('2025-02-01')),
+    PARTITION p_2025_02 VALUES LESS THAN (TO_DAYS('2025-03-01')),
+    -- ... monthly partitions
+);
+```
+
+## Django Model
+
+```python
+class SensorReading(models.Model):
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
+    reading_type = models.CharField(max_length=50)
+    value = models.DecimalField(max_digits=10, decimal_places=4)
+    recorded_at = models.DateTimeField(db_index=True)
+    
+    class Meta:
+        indexes = [
+            models.Index(fields=['sensor', 'recorded_at']),
+        ]
+```
+
+## Results
+
+- **99.9%** uptime over 6 months
+- Less than **100ms** average query time
+- **Zero** data loss
+- **$50/month** infrastructure cost
+
+*Scale doesn't have to be expensive.*

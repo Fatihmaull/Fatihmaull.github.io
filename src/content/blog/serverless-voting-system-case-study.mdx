@@ -1,0 +1,55 @@
+---
+title: "Salvaging a National Voting System: From Crash to Serverless in 24 Hours"
+description: "A case study on rapid system recovery and fraud prevention."
+date: "2026-01-05"
+tags: ["Cybersecurity", "Case Study", "Google Apps Script"]
+readTime: "8 min"
+---
+
+# Salvaging a National Voting System
+
+*From Crash to Serverless in 24 Hours*
+
+When the national voting system for CSSMORA crashed 24 hours before launch, I was called in to salvage the situation. This is the story of how we achieved **zero fraud** with a completely rebuilt system.
+
+## The Crisis
+
+The original PHP-based voting system had critical vulnerabilities:
+- SQL injection risks
+- No token validation
+- Single point of failure
+
+With thousands of voters expected, we needed a bulletproof solution—fast.
+
+## The Serverless Solution
+
+We rebuilt the entire system using **Google Apps Script** with these security measures:
+
+1. **One-time token validation** - Each voter received a unique, cryptographically secure token
+2. **Double verification** - Email + student ID matching
+3. **Audit logging** - Every action timestamped and logged
+4. **Rate limiting** - Prevents brute force attacks
+
+```javascript
+function validateVoterToken(token, studentId) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet();
+  const voters = sheet.getSheetByName('ValidTokens');
+  
+  // Cryptographic verification
+  const hash = Utilities.computeDigest(
+    Utilities.DigestAlgorithm.SHA_256,
+    token + studentId + SECRET_SALT
+  );
+  
+  return verifyHash(hash, voters);
+}
+```
+
+## Results
+
+- **100%** uptime during 12-hour voting period
+- **0** fraudulent votes detected
+- **3,247** successful votes cast
+- **Zero** complaints from election committee
+
+*Sometimes the best solution is the simplest one.*

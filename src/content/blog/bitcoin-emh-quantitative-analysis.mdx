@@ -1,0 +1,52 @@
+---
+title: "Why Technical Analysis Failed on Bitcoin: A Quantitative Test of the Efficient Market Hypothesis"
+description: "Statistical analysis of Bitcoin market efficiency using ROC curves and AUC metrics."
+date: "2026-01-10"
+tags: ["Quantitative Finance", "Python", "Research"]
+readTime: "10 min"
+---
+
+# Why Technical Analysis Failed on Bitcoin
+
+*A Quantitative Test of the Efficient Market Hypothesis*
+
+Technical analysis has been a cornerstone of trading strategies for decades. But does it actually work on cryptocurrency markets? Our research suggests otherwise.
+
+## The Efficient Market Hypothesis
+
+The EMH states that asset prices reflect all available information. If true, technical indicators should have no predictive power—their AUC should approximate **0.5** (random chance).
+
+## Methodology
+
+We tested 15 popular technical indicators on Bitcoin price data from 2017-2025:
+
+- Moving Averages (SMA, EMA)
+- RSI (Relative Strength Index)
+- MACD
+- Bollinger Bands
+- And 10 others...
+
+```python
+from sklearn.metrics import roc_auc_score
+import pandas as pd
+
+# Calculate indicator signals
+signals = calculate_technical_indicators(btc_data)
+
+# Evaluate predictive power
+for indicator in indicators:
+    auc = roc_auc_score(actual_returns, signals[indicator])
+    print(f"{indicator}: AUC = {auc:.4f}")
+```
+
+## Key Findings
+
+| Indicator | AUC Score | Result |
+|-----------|-----------|--------|
+| RSI | 0.512 | Random |
+| MACD | 0.498 | Random |
+| SMA Cross | 0.507 | Random |
+
+**Conclusion**: With AUC scores averaging ~0.5, technical indicators show no significant predictive power on Bitcoin, supporting the weak-form EMH.
+
+*Full paper with statistical significance tests available on Zenodo.*

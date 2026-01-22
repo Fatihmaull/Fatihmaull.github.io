@@ -1,0 +1,62 @@
+---
+title: "Visualizing Dijkstra's Algorithm: Optimizing Graph Theory in Java"
+description: "Interactive visualization of pathfinding algorithms with Java implementation."
+date: "2025-12-15"
+tags: ["Algorithms", "Java", "Visualization"]
+readTime: "11 min"
+---
+
+# Visualizing Dijkstra's Algorithm in Java
+
+*From Theory to Interactive Graphics*
+
+Dijkstra's algorithm is fundamental to computer science, yet it's often taught abstractly. Let's build an interactive visualizer that makes the algorithm tangible.
+
+## The Algorithm in Brief
+
+Dijkstra's finds the shortest path from a source node to all other nodes in a weighted graph:
+
+1. Initialize distances (source = 0, others = ∞)
+2. Pick unvisited node with smallest distance
+3. Update neighbors' distances if shorter path found
+4. Mark node as visited
+5. Repeat until all nodes visited
+
+## Java Implementation
+
+```java
+public class Dijkstra {
+    private PriorityQueue<Node> queue;
+    private Map<Node, Integer> distances;
+    private Map<Node, Node> previous;
+    
+    public void findShortestPath(Graph graph, Node source) {
+        initialize(graph, source);
+        
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            
+            for (Edge edge : current.getEdges()) {
+                Node neighbor = edge.getDestination();
+                int newDist = distances.get(current) + edge.getWeight();
+                
+                if (newDist < distances.get(neighbor)) {
+                    distances.put(neighbor, newDist);
+                    previous.put(neighbor, current);
+                    queue.add(neighbor); // Re-add with new priority
+                }
+            }
+        }
+    }
+}
+```
+
+## The Visualization
+
+Using Java Swing, we create an animated visualization:
+- Nodes change color as they're processed
+- Edges highlight when relaxed
+- Distance labels update in real-time
+- Step-by-step playback controls
+
+*Full source code with Java Swing GUI available on GitHub.*

@@ -1,0 +1,61 @@
+---
+title: "Secure API Architecture: Documenting Microservices for Fintech"
+description: "Best practices for designing secure and well-documented APIs."
+date: "2025-12-10"
+tags: ["API Design", "Security", "Fintech"]
+readTime: "7 min"
+---
+
+# Secure API Architecture for Fintech
+
+*Documentation That Prevents Breaches*
+
+In fintech, your API is your product. Here's how to design APIs that are both developer-friendly AND secure.
+
+## The Security-First Approach
+
+Every endpoint should answer these questions:
+1. **Who** can access this? (Authentication)
+2. **What** can they do? (Authorization)
+3. **How much** can they do? (Rate limiting)
+4. **What data** is exposed? (Data minimization)
+
+## API Security Checklist
+
+```yaml
+# OpenAPI Security Specification
+security:
+  - bearerAuth: []  # JWT required
+  - apiKey: []      # API key backup
+
+paths:
+  /v1/transactions:
+    post:
+      security:
+        - bearerAuth: []
+      x-rate-limit:
+        requests: 100
+        window: 60  # seconds
+      responses:
+        '201':
+          description: Transaction created
+        '429':
+          description: Rate limit exceeded
+```
+
+## Documentation Best Practices
+
+1. **OpenAPI/Swagger** - Machine-readable spec
+2. **Examples for every endpoint** - Copy-paste ready
+3. **Error code catalog** - What went wrong, how to fix
+4. **Changelog** - Version history with breaking changes
+5. **Security notes** - What's PII, what's encrypted
+
+## Tools We Use
+
+- **Swagger UI** - Interactive documentation
+- **Postman Collections** - Runnable examples
+- **AsyncAPI** - For webhooks and events
+- **Redoc** - Beautiful static docs
+
+*Good documentation is a security feature.*

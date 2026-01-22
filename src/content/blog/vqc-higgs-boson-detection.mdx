@@ -1,0 +1,48 @@
+---
+title: "Implementing Variational Quantum Classifiers (VQC) for Higgs Boson Signal Detection"
+description: "A deep dive into VQC implementation for particle physics classification using Qiskit."
+date: "2026-01-15"
+tags: ["Quantum Computing", "Research", "Qiskit"]
+readTime: "12 min"
+---
+
+# Implementing Variational Quantum Classifiers for Higgs Boson Detection
+
+The discovery of the Higgs boson at CERN in 2012 marked a pivotal moment in particle physics. Today, we explore how **Variational Quantum Classifiers (VQC)** can be applied to classify Higgs boson signals from background noise in ATLAS detector data.
+
+## Introduction
+
+The Large Hadron Collider generates petabytes of collision data. Distinguishing genuine Higgs boson events from background processes is a computationally intensive classification problem—one where quantum computing may offer advantages.
+
+## The VQC Architecture
+
+A Variational Quantum Classifier consists of three main components:
+
+1. **Feature Map**: Encodes classical data into quantum states
+2. **Ansatz**: Parameterized quantum circuit that learns decision boundaries
+3. **Measurement**: Extracts classical predictions from quantum states
+
+```python
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import ZZFeatureMap, RealAmplitudes
+from qiskit_machine_learning.algorithms import VQC
+
+# Feature map for encoding
+feature_map = ZZFeatureMap(feature_dimension=4, reps=2)
+
+# Trainable ansatz
+ansatz = RealAmplitudes(num_qubits=4, reps=3)
+
+# Combine into VQC
+vqc = VQC(
+    feature_map=feature_map,
+    ansatz=ansatz,
+    optimizer=COBYLA()
+)
+```
+
+## Results and Analysis
+
+Our benchmarking on the ATLAS Higgs dataset showed promising results, with the VQC achieving competitive accuracy compared to classical methods while requiring fewer training iterations.
+
+*Full research paper coming soon.*

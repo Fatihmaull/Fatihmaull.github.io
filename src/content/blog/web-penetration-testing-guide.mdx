@@ -1,0 +1,80 @@
+---
+title: "Web Penetration Testing Guide: Common Vulnerabilities in E-Commerce (XSS & IDOR)"
+description: "Comprehensive guide to identifying and mitigating web vulnerabilities."
+date: "2025-12-05"
+tags: ["Cybersecurity", "Penetration Testing", "Tutorial"]
+readTime: "14 min"
+---
+
+# Web Penetration Testing Guide
+
+*Finding XSS & IDOR in E-Commerce Applications*
+
+E-commerce platforms are prime targets for attackers. Here's how to find—and fix—the most common vulnerabilities.
+
+## Cross-Site Scripting (XSS)
+
+XSS allows attackers to inject malicious scripts into pages viewed by other users.
+
+### Testing for Reflected XSS
+
+```
+# Test payloads
+https://shop.com/search?q=<script>alert('XSS')</script>
+https://shop.com/search?q="><img src=x onerror=alert('XSS')>
+https://shop.com/search?q=javascript:alert('XSS')
+```
+
+### Mitigation
+
+```javascript
+// Bad - Direct HTML insertion
+element.innerHTML = userInput;
+
+// Good - Text content only
+element.textContent = userInput;
+
+// Good - Sanitization library
+import DOMPurify from 'dompurify';
+element.innerHTML = DOMPurify.sanitize(userInput);
+```
+
+## Insecure Direct Object Reference (IDOR)
+
+IDOR occurs when applications expose internal object references without proper authorization.
+
+### Testing for IDOR
+
+```
+# Original request (your order)
+GET /api/orders/12345
+
+# Modified request (someone else's order?)
+GET /api/orders/12346
+GET /api/orders/12344
+```
+
+### Mitigation
+
+```python
+# Bad - No authorization check
+def get_order(order_id):
+    return Order.query.get(order_id)
+
+# Good - Authorization check
+def get_order(order_id, current_user):
+    order = Order.query.get(order_id)
+    if order.user_id != current_user.id:
+        raise PermissionDenied()
+    return order
+```
+
+## Responsible Disclosure
+
+Always follow responsible disclosure practices:
+1. Document findings clearly
+2. Report to security team
+3. Give reasonable time to fix
+4. Don't exploit vulnerabilities
+
+*Happy hunting—ethically.*
