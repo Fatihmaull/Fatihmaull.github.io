@@ -1,0 +1,44 @@
+---
+title: 'Peeking Inside the Black Box: A Neural Network Visualizer'
+date: '2026-01-20'
+description: 'Building an interactive web tool to visualize activation layers in real-time training sessions using React and D3.js.'
+tags: ['Machine Learning', 'React', 'D3.js', 'Visualization']
+readTime: '10 min'
+---
+
+## The Problem with Black Boxes
+
+Neural networks are notoriously opaque. Understanding *why* a model made a prediction is often as hard as building the model itself. This project, **NeuroVis**, aims to demystify deep learning by visualizing the activation maps of a CNN in the browser.
+
+## Architecture
+
+The application runs a lightweight model using **TensorFlow.js** directly in the client.
+
+*   **Model**: MobileNetV2 (quantized for web)
+*   **Visualization**: D3.js for heatmaps and network graphs
+*   **UI**: React for state management
+
+## Visualizing Activations
+
+The core challenge was extracting intermediate layer outputs without killing browser performance. We used TensorFlow.js hooks to tap into specific tensors during the forward pass.
+
+```javascript
+const model = await tf.loadLayersModel('model.json');
+const activationModel = tf.model({
+  inputs: model.inputs,
+  outputs: [model.getLayer('conv2d_1').output]
+});
+```
+
+These tensors are then converted to typed arrays and rendered on an HTML5 Canvas, using a false-color mapping to highlight high-activation regions.
+
+## Optimizing for 60fps
+
+Rendering hundreds of activation maps is expensive. We optimized this by:
+1.  **WebGL operations**: Keeping almost all math on the GPU.
+2.  **RequestAnimationFrame**: Batching UI updates.
+3.  **Canvas recycling**: avoiding DOM thrashing by reusing canvas elements.
+
+## Outcome
+
+The tool successfully demonstrates feature extraction—showing how early layers detect edges and gradients, while deeper layers react to eyes, wheels, or leaves.

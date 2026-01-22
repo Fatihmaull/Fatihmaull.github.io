@@ -1,0 +1,32 @@
+---
+title: 'Chaos & Code: A Generative Art Engine'
+date: '2025-12-25'
+description: 'Exploring algorithmic beauty through Perlin noise, flow fields, and particle systems using p5.js and WebGL.'
+tags: ['Creative Coding', 'p5.js', 'WebGL', 'Art']
+readTime: '7 min'
+---
+
+## Code as Canvas
+
+Generative art is the practice of writing algorithms that produce unpredictable, aesthetic visual outputs. It sits at the intersection of mathematics and artistic expression. This project, **FlowState**, is a browser-based engine for creating flow-field art.
+
+## The Math: Perlin Noise
+
+Unlike random noise (static), **Perlin noise** is smooth and continuous. We use it to generate a vector field—imagine an invisible grid where each cell has an arrow pointing in a slightly different direction than its neighbor.
+
+```javascript
+// p5.js snippet
+let angle = noise(x * scale, y * scale) * TWO_PI;
+let vector = p5.Vector.fromAngle(angle);
+```
+
+## Particle Systems
+
+We drop thousands of "particles" onto this field. As they move, they follow the vectors, tracing out organic, fluid-like paths.
+
+### Performance with WebGL
+Rendering 50,000 particles at 60fps requires GPU acceleration. We utilized **GLSL shaders** to handle the position updates and rendering, treating the particle data as textures.
+
+## The Output
+
+The resulting images resemble natural formations—topographical maps, wood grain, or fluid dynamics. This engine was used to generate the hero background for this very portfolio!

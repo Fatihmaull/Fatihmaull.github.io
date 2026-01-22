@@ -1,0 +1,36 @@
+---
+title: 'The Microsecond Race: C++ High-Frequency Trading Bot'
+date: '2025-12-30'
+description: 'Engineering a low-latency market making system for crypto exchanges using C++ and WebSockets.'
+tags: ['Quant', 'C++', 'WebSocket', 'Finance']
+readTime: '13 min'
+---
+
+## The Need for Speed
+
+In High-Frequency Trading (HFT), "slow" code costs money. A difference of 1 millisecond can mean missing a profitable arbitrage opportunity. This project focuses on building a **market making bot** with a focus on extreme low latency.
+
+## System Architecture
+
+We chose **C++17** for its zero-overhead abstractions and manual memory control.
+
+1.  **Market Data Adapter**: Connects to Exchange WebSockets (Binance/Coinbase).
+2.  **Order Book Manager**: Maintains a local copy of the L2 Order Book.
+3.  **Strategy Engine**: Calculates fair price and spread.
+4.  **Order Execution**: Sends FIX/REST orders via a dedicated thread.
+
+## Optimization Techniques
+
+### Lock-Free Data Structures
+Using generic `std::mutex` introduces context switching overhead. We used **lock-free ring buffers** (SPSC queues) to pass market data from the network thread to the strategy thread.
+
+### Kernel Bypass (Solarflare)
+For the advanced version, we explored **kernel bypass networking**. By mapping the network card (NIC) memory directly to user space, we avoid the OS TCP/IP stack overhead, shaving off microseconds.
+
+## Strategy: Delta Neutral
+
+The bot acted as a market maker, providing liquidity on both bid and ask sides. To avoid directional risk (exposure to Bitcoin price going down), we hedged our inventory on a futures contract, maintaining a **Delta Neutral** position.
+
+## Performance
+
+The final system achieved an internal wire-to-order logic latency of **< 40 microseconds**, significantly faster than Python-based alternatives.

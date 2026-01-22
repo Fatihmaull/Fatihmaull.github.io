@@ -1,0 +1,39 @@
+---
+title: 'Trust No One: Designing an Encrypted Chat Protocol'
+date: '2026-01-03'
+description: 'Implementing the Double Ratchet Algorithm in Rust to build a secure, forward-secrecy compliant messaging application.'
+tags: ['Cryptography', 'Rust', 'Networking', 'Security']
+readTime: '15 min'
+---
+
+## Beyond Standard SSL
+
+Most chat apps use TLS for transit encryption, but the server still sees plaintext. **End-to-End Encryption (E2EE)** ensures only the sender and receiver possess the keys. This project implements a Signal-like protocol in **Rust**.
+
+## The Double Ratchet Algorithm
+
+We implemented the **Double Ratchet**, which provides two critical properties:
+1.  **Forward Secrecy**: If a key is compromised, past messages remain secure.
+2.  **Future Secrecy**: If a key is compromised, the protocol "heals" itself after a few round-trips.
+
+It works by maintaining two chains of keys:
+*   **Root Chain**: Updates based on Diffie-Hellman exchanges.
+*   **Sending/Receiving Chains**: Updates for every message sent.
+
+## Why Rust?
+
+Cryptography requires memory safety. A buffer overflow in a C++ crypto library can leak private keys. **Rust's borrow checker** guarantees memory safety at compile time preventing entire classes of vulnerabilities.
+
+```rust
+// Simplified Ratchet Step
+fn ratchet_encrypt(&mut self, plaintext: &[u8]) -> Vec<u8> {
+    let key = self.kdf_chain_key.next();
+    let nonce = self.nonce_counter;
+    self.nonce_counter += 1;
+    aes_gcm_encrypt(key, nonce, plaintext)
+}
+```
+
+## Results
+
+The resulting CLI chat application successfully exchanges encrypted messages over TCP. We benchmarked the handshakes and found the Rust implementation to be performant even on low-power devices, making it suitable for IoT security applications.

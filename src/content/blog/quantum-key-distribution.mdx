@@ -1,0 +1,36 @@
+---
+title: 'Unbreakable Encryption: Simulating Quantum Key Distribution (BB84)'
+date: '2025-12-08'
+description: 'A Python-based simulation of the BB84 protocol demonstrating how quantum mechanics guarantees secure communication.'
+tags: ['Quantum', 'Python', 'Education', 'Cryptography']
+readTime: '12 min'
+---
+
+## When Math Isn't Enough
+
+RSA encryption relies on the difficulty of factoring large numbers. Quantum computers (via Shor's algorithm) will eventually break this. **Quantum Key Distribution (QKD)** doesn't rely on math; it relies on **physics**.
+
+## The BB84 Protocol
+
+This simulation demonstrates the Bennett-Brassard 1984 protocol.
+1.  **Alice** sends photons polarized in random bases (+ or x).
+2.  **Bob** measures them in random bases.
+3.  **Sifting**: They publicly compare which *bases* they used (not the results).
+4.  **Key Generation**: Where bases matched, they share a secret bit.
+
+## Simulating the "Spy" (Eve)
+
+The crux of QKD is the **No-Cloning Theorem**. If Eve tries to intercept the photons, she *must* measure them. Measuring a quantum state changes it.
+
+Our simulation introduces an "Eve" agent. We show statistically that if Eve intercepts > 0% of the bits, the **Error Rate (QBER)** in Alice and Bob's key skyrockets. They detect the interference and discard the key.
+
+```python
+# Simulating the observer effect
+def eve_intercept(qubit):
+    measurement_basis = random.choice(['+', 'x'])
+    return measure(qubit, measurement_basis) # The state is now collapsed!
+```
+
+## Conclusion
+
+This project serves as an educational tool to visualize quantum concepts like superposition and wavefunction collapse in the context of cybersecurity.

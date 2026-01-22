@@ -1,0 +1,54 @@
+---
+title: 'Solving Slippage: Engineering a DeFi Liquidity Aggregator'
+date: '2026-01-12'
+description: 'Optimizing trade execution across multiple decentralized exchanges (DEXs) using smart contracts and graph algorithms.'
+tags: ['Blockchain', 'Solidity', 'Web3.js', 'DeFi']
+readTime: '14 min'
+---
+
+## The Fragmented Liquidity Problem
+
+In Decentralized Finance (DeFi), liquidity is split across dozens of protocols (Uniswap, SushiSwap, Curve). A large trade on a single pool causes significant **slippage** (price impact). An aggregator solves this by splitting the trade across multiple routes.
+
+## Smart Contract Architecture
+
+The core of this project is a router contract written in **Solidity**.
+
+### Pathfinding Algorithm
+Off-chain, we calculate the optimal split using a variation of the **Bellman-Ford algorithm** (to detect arbitrage cycles) or **Dijkstra** (for simple path finding), accounting for gas costs.
+
+1.  **Fetch Reserves**: Query the state of all relevant pools.
+2.  **Compute Graph**: Model tokens as nodes and pools as edges.
+3.  **Optimize Flow**: Find the max flow / min cost path.
+
+### Atomic Execution
+
+The transaction is executed atomically. If *any* part of the split trade fails (or if the final output amounts to less than the user's minimum acceptable amount), the entire transaction reverts.
+
+```solidity
+function swap(
+    SwapDescription memory desc,
+    ExecutorData[] memory executors
+) external payable returns (uint256 returnAmount) {
+    // ... security checks ...
+    
+    // Execute multiple low-level calls to DEXs
+    for (uint256 i = 0; i < executors.length; i++) {
+        // ... swap logic
+    }
+    
+    // validatotion
+    require(returnAmount >= desc.minReturnAmount, "High slippage");
+}
+```
+
+## Security Considerations
+
+Aggregators are high-value targets. We implemented distinct security measures:
+*   **Reentrancy Guards**: Preventing recursive calls.
+*   **Token Whitelisting**: Avoiding malicious ERC-20 tokens.
+*   **Gas Optimization**: Using assembly (Yul) for heavy loops.
+
+## Conclusion
+
+This project underscored the importance of **Gas Golfing**—optimizing code to save users money on Ethereum mainnet transactions.

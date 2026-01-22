@@ -64,7 +64,7 @@ export function Navigation() {
                             className="text-[var(--accent)] font-mono text-lg hover:opacity-80 transition-opacity"
                         >
                             <span className="font-bold">{profile.name.split(' ')[0]}</span>
-                            <span className="text-[var(--slate)]">.dev</span>
+                            <span className="text-[var(--slate)]"> Maulana</span>
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -76,7 +76,7 @@ export function Navigation() {
                                             href={item.href}
                                             className="group flex items-center gap-1 font-mono text-sm text-[var(--slate-light)] hover:text-[var(--accent)] transition-colors"
                                         >
-                                            <span className="text-[var(--accent)] text-xs">0{index + 1}.</span>
+                                            <span className="text-[var(--accent)] text-xs"> - </span>
                                             {item.name}
                                         </Link>
                                     </li>

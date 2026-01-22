@@ -25,7 +25,7 @@ const socialIcons = {
   ),
 };
 
-const sectionIds = ['about', 'experience', 'projects'];
+const sectionIds = ['about', 'experience', 'projects', 'gallery'];
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState('about');
@@ -232,7 +232,6 @@ export default function HomePage() {
                   24 hours before launch. These experiences have shaped how I think about building
                   products that are both well-crafted and widely usable.
                 </p>
-
                 <p style={{ lineHeight: '1.625' }}>
                   Outside of work, you can usually find me diving into research papers on quantum
                   machine learning or exploring the intersection of physics and high-frequency trading.
@@ -376,7 +375,7 @@ export default function HomePage() {
 
               <div>
                 <ul className="group/list">
-                  {projects.map((project, index) => (
+                  {projects.slice(0, 5).map((project, index) => (
                     <li key={project.id} style={{ marginBottom: '3rem' }}>
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -474,6 +473,118 @@ export default function HomePage() {
                     </span>
                   </a>
                 </div>
+              </div>
+            </section>
+
+            {/* GALLERY SECTION (BENTO GRID) */}
+            <section
+              id="gallery"
+              className="section-spacing scroll-mt-16 lg:scroll-mt-24"
+              aria-label="Project Gallery"
+            >
+              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Gallery</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr">
+                {projects.slice(0, 5).map((project, index) => {
+                  // Map project sizes to grid classes
+                  const sizeClasses = {
+                    large: 'md:col-span-2 md:row-span-2',
+                    vertical: 'md:row-span-2',
+                    wide: 'md:col-span-2',
+                    square: '',
+                  };
+
+                  return (
+                    <motion.article
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className={cn(
+                        'group relative flex flex-col',
+                        'bg-slate-800/50 rounded-lg p-6',
+                        'border border-slate-700/50',
+                        'hover:border-teal-300/30 hover:-translate-y-1',
+                        'transition-all duration-300 ease-out',
+                        'hover:shadow-lg hover:shadow-teal-900/20',
+                        sizeClasses[project.size as keyof typeof sizeClasses] || ''
+                      )}
+                    >
+                      {/* Top row - folder and links */}
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="text-teal-300">
+                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                          </svg>
+                        </span>
+
+                        <div className="flex items-center gap-4">
+                          <Link
+                            href={project.link || '#'}
+                            className="text-slate-400 hover:text-teal-300 transition-colors"
+                            aria-label="View on GitHub"
+                          >
+                            {socialIcons.github}
+                          </Link>
+                          <Link
+                            href={project.link || '#'}
+                            className="text-slate-400 hover:text-teal-300 transition-colors"
+                            aria-label="Read Blog Post"
+                          >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Project Title */}
+                      <h3 className="text-xl font-semibold text-slate-200 mb-3 group-hover:text-teal-300 transition-colors">
+                        <Link href={project.link || '#'}>
+                          {project.title}
+                        </Link>
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+                        {project.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {project.tags.slice(0, 4).map((tag) => (
+                          <span key={tag} className="text-xs font-mono text-teal-300/90 bg-teal-400/10 px-2 py-1 rounded">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.article>
+                  );
+                })}
+              </div>
+
+              {/* View Full Gallery Link */}
+              <div className="mt-12 text-center md:text-left">
+                <a
+                  href="/gallery"
+                  className="inline-flex items-center font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+                >
+                  <span className="border-b border-transparent pb-px transition group-hover/link:border-teal-300 motion-reduce:transition-none">
+                    View Full Gallery
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="ml-1 h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-1 motion-reduce:transition-none"
+                    aria-hidden="true"
+                  >
+                    <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd"></path>
+                  </svg>
+                </a>
               </div>
             </section>
 

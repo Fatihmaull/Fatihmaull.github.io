@@ -1,0 +1,32 @@
+---
+title: 'Reinventing Storage: Building a Distributed File System in Go'
+date: '2025-12-18'
+description: 'Implementing a fault-tolerant, sharded storage system inspired by GFS and HDFS using Go.'
+tags: ['Systems', 'Go', 'Distributed Systems', 'Backend']
+readTime: '16 min'
+---
+
+## The Challenge of Scale
+
+How do you store a 100TB file when your hard drive is only 1TB? You split it up. This project, **GoDFS**, mimics architecture of the Google File System (GFS) to effectively store massive files across unreliable commodity hardware.
+
+## Architecture
+
+1.  **NameNode (Master)**: Stores metadata (file names, permissions, and which "chunks" belong to which file).
+2.  **DataNodes (Workers)**: Store the actual raw bytes (chunks).
+3.  **Client**: Talks to NameNode to find data, then directly to DataNodes to read/write.
+
+## Consistency & Replication
+
+We implemented **heartbeats**. Every 5 seconds, DataNodes ping the NameNode. If a DataNode goes silent, the NameNode assumes it's dead and instructs other nodes to re-replicate the missing chunks to maintain a replication factor of 3.
+
+### The CAP Theorem trade-off
+We chose **Consistency (CP)** over Availability during partitions. In a split-brain scenario, the system halts writes rather than accepting potentially conflicting data.
+
+## Why Go?
+
+Go's **goroutines** and **channels** are perfect for network programming. Handling thousands of concurrent connections from DataNodes is trivial in Go compared to thread-heavy languages like Java.
+
+## Outcome
+
+GoDFS handles node failures gracefully. I demonstrated this by physically unplugging a Raspberry Pi acting as a DataNode during a write operation—the system detected the failure and redirected the stream to a healthy node automatically.

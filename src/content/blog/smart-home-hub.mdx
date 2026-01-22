@@ -1,0 +1,38 @@
+---
+title: 'The Universal Translator: Creating a Smart Home Hub'
+date: '2025-12-12'
+description: 'Unifying fragmented IoT protocols (Zigbee, Z-Wave, WiFi) into a single controlled gateway using Node.js and MQTT.'
+tags: ['IoT', 'Node.js', 'MQTT', 'Hardware']
+readTime: '11 min'
+---
+
+## The Protocol Zoo
+
+Smart homes are a mess of protocols. Philips Hue uses Zigbee, Samsung things use Z-Wave, and cheaper devices use WiFi. They don't talk to each other. This project builds a **Universal Gateway** running on a Raspberry Pi to bridge them all.
+
+## Architecture
+
+The hub acts as a translation layer.
+
+*   **Hardware**: Raspberry Pi 4 + Zigbee/Z-Wave USB Dongle.
+*   **Software**: Node.js service utilizing `zigbee2mqtt` and `zwave-js`.
+*   **Bus**: **MQTT** (Mosquitto broker) serves as the central nervous system.
+
+## The Logic Layer
+
+We built a rule engine in Node.js.
+
+> *IF [Motion Sensor] triggers AND [Time] is > 6PM THEN [Turn on Living Room Lights]*
+
+Because everything publishes to MQTT topics (e.g., `home/living-room/motion`), the logic engine doesn't care if the sensor is Zigbee or WiFi. It just listens to the topic.
+
+## Local First
+
+Privacy is key. Unlike Alexa or Google Home, this hub processes everything **locally**. No cloud dependency means:
+1.  **Speed**: Latency is < 20ms.
+2.  **Reliability**: Works even if the internet goes down.
+3.  **Privacy**: No audio/data leaves the house.
+
+## Conclusion
+
+This project evolved into a fully automated home environment, proving that open standards (MQTT) generally beat walled gardens in the long run.

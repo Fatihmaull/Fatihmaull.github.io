@@ -1,0 +1,36 @@
+---
+title: 'Mapping the Earth: Satellite Imagery Analysis with PyTorch'
+date: '2026-01-08'
+description: 'Using Convolutional Neural Networks (CNNs) to classify land usage patterns from Sentinel-2 satellite data.'
+tags: ['Computer Vision', 'PyTorch', 'Geospatial', 'GIS']
+readTime: '11 min'
+---
+
+## Earth Observation from Space
+
+With the abundance of free data from programs like **Copernicus (Sentinel-2)**, we can monitor environmental changes at scale. This project focused on **Land Use/Land Cover (LULC)** classification—automatically identifying forests, urban areas, water bodies, and agriculture.
+
+## Dataset & Preprocessing
+
+Satellite images are not standard JPEGs. They have multiple spectral bands (Near-Infrared, Red Edge, etc.).
+*   **Data Source**: Sentinel-2 (Level-2A).
+*   **Preprocessing**: Atmospheric correction, cloud masking, and tiling large GeoTIFFs into 256x256 chips.
+
+## Model: U-Net with ResNet Backbone
+
+We approached this as a semantic segmentation problem. The usage of specific vegetation indices (NDVI) as extra input channels significantly helped the model distinguish between similar green features.
+
+```python
+# Feature Engineering: NDVI
+ndvi = (nir_band - red_band) / (nir_band + red_band + 1e-8)
+input_tensor = torch.cat([rgb_tensor, ndvi.unsqueeze(1)], dim=1)
+```
+
+## Challenges
+
+1.  **Class Imbalance**: "Water" is rare compared to "Vegetation". We used **Focal Loss** to force the model to focus on hard-to-classify examples.
+2.  **Resolution**: Sentinel-2 has 10m/px resolution. Detecting small structures (like rural roads) required super-resolution techniques, which we experimented with in Phase 2.
+
+## Impact
+
+Automated LULC maps are crucial for urban planning and tracking deforestation. This pipeline is currently being adapted to monitor palm oil plantation expansion in Southeast Asia.

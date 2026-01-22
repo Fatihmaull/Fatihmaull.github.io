@@ -1,0 +1,35 @@
+---
+title: 'Decoading Life: High-Performance DNA Sequence Alignment'
+date: '2025-12-02'
+description: 'Accelerating the Smith-Waterman algorithm for FASTQ DNA sequence alignment using C++ and OpenMP parallelization.'
+tags: ['Bioinformatics', 'C++', 'OpenMP', 'Algorithms']
+readTime: '14 min'
+---
+
+## The Genomic Big Data Problem
+
+A human genome is 3.2 billion base pairs. Sequencing machines produce millions of fragmented reads (FASTQ files). Reassembling them (Alignment) is computationally expensive.
+
+## The Algorithm: Smith-Waterman
+
+We implemented the **Smith-Waterman algorithm**, a dynamic programming approach for local sequence alignment. It finds the most similar region between two strings (e.g., `ATCG..` and `TCCA..`).
+
+The naive implementation is `O(N*M)`. For millions of reads, this is too slow.
+
+## Optimization with SIMD and OpenMP
+
+We optimized the C++ engine using two strategies:
+
+1.  **SIMD (Single Instruction, Multiple Data)**: Using AVX2 instructions (intrinsics) to compare 8 base pairs in a single CPU cycle.
+2.  **OpenMP Parallelization**: Distributing the processing of millions of reads across all available CPU cores.
+
+```cpp
+#pragma omp parallel for schedule(dynamic)
+for (int i = 0; i < num_reads; ++i) {
+    align_sequence(reads[i], reference_genome);
+}
+```
+
+## Result
+
+The optimized engine processed alignment tasks **40x faster** than the single-threaded Python prototype. This project highlighted how low-level systems programming is vital for modern biology and personalized medicine.

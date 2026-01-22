@@ -11,7 +11,7 @@ A blend of rigorous academic research (UIN/UUM) and practical "get-it-done" engi
     socials: {
         github: 'https://github.com/Fatihmaull',
         linkedin: 'https://linkedin.com/in/fatihmaulana',
-        zenodo: 'https://zenodo.org/', // Add actual Zenodo link when available
+        zenodo: 'https://zenodo.org/records/18096724',
         email: 'mailto:fatihmaulanamail@gmail.com',
     },
 };
@@ -19,9 +19,10 @@ A blend of rigorous academic research (UIN/UUM) and practical "get-it-done" engi
 // Navigation Items
 export const navItems = [
     { name: 'About', href: '/#about' },
-    { name: 'Work', href: '/#work' },
+    { name: 'Works', href: '/#experience' },
     { name: 'Blog', href: '/blog/' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Contact', href: '/contact' },
 ];
 
 // Physics Hero Skill Tags
@@ -45,6 +46,7 @@ export const projects = [
         tags: ['Research', 'Quantum Computing', 'Qiskit', 'Python', 'PCA'],
         size: 'large', // 2x2 hero card
         featured: true,
+        link: '/blog/vqc-higgs-boson-detection',
     },
     {
         id: 2,
@@ -52,6 +54,7 @@ export const projects = [
         description: 'Gamified personal challenges platform & mobile prototype.',
         tags: ['Mobile Dev', 'Flutter', 'Dart'],
         size: 'vertical', // 1x2 vertical
+        link: '/blog/rivalry-mobile-app',
     },
     {
         id: 3,
@@ -59,6 +62,7 @@ export const projects = [
         description: 'Salvaged national election system 24h before launch. Zero fraud.',
         tags: ['Cybersecurity', 'Google Apps Script', 'Token Validation'],
         size: 'square', // 1x1
+        link: '/blog/serverless-voting-system-case-study',
     },
     {
         id: 4,
@@ -66,6 +70,7 @@ export const projects = [
         description: 'SaaS for IoT sensor data management in Malaysia.',
         tags: ['Full-Stack', 'IoT', 'Django', 'MySQL', 'REST API'],
         size: 'square', // 1x1
+        link: '/blog/scalable-iot-django-mysql',
     },
     {
         id: 5,
@@ -73,6 +78,88 @@ export const projects = [
         description: 'Statistical evaluation of technical indicators testing Market Efficiency (AUC ≈ 0.5).',
         tags: ['Quantitative Analysis', 'Python', 'Pandas', 'ROC/AUC'],
         size: 'wide', // 2x1 wide
+        link: '/blog/bitcoin-emh-quantitative-analysis',
+    },
+    // Placeholders for Full Gallery
+    {
+        id: 6,
+        title: 'Neural Network Visualizer',
+        description: 'Interactive web-based visualization of neural network layer activations.',
+        tags: ['Machine Learning', 'React', 'D3.js'],
+        size: 'square',
+        link: '/blog/neural-network-visualizer',
+    },
+    {
+        id: 7,
+        title: 'DeFi Liquidity Aggregator',
+        description: 'Smart contract aggregator for optimal trade execution across DEXs.',
+        tags: ['Blockchain', 'Solidity', 'Web3.js'],
+        size: 'vertical',
+        link: '/blog/defi-liquidity-aggregator',
+    },
+    {
+        id: 8,
+        title: 'Satellite Imagery Analysis',
+        description: 'Land use classification using CNNs on Sentinel-2 satellite data.',
+        tags: ['Computer Vision', 'PyTorch', 'Geospatial'],
+        size: 'square',
+        link: '/blog/satellite-imagery-analysis',
+    },
+    {
+        id: 9,
+        title: 'Encrypted Chat Protocol',
+        description: 'End-to-end encrypted messaging protocol using Signal algorithm.',
+        tags: ['Cryptography', 'Rust', 'Networking'],
+        size: 'square',
+        link: '/blog/encrypted-chat-protocol',
+    },
+    {
+        id: 10,
+        title: 'High-Frequency Trading Bot',
+        description: 'Market making bot for crypto exchanges with delta-neutral strategy.',
+        tags: ['Quant', 'C++', 'WebSocket'],
+        size: 'wide',
+        link: '/blog/high-frequency-trading-bot',
+    },
+    {
+        id: 11,
+        title: 'Generative Art Engine',
+        description: 'Algorithmic art generator based on flow fields and noise capabilities.',
+        tags: ['Creative Coding', 'p5.js', 'WebGL'],
+        size: 'square',
+        link: '/blog/generative-art-engine',
+    },
+    {
+        id: 12,
+        title: 'Distributed File System',
+        description: 'Fault-tolerant distributed storage node implementation from scratch.',
+        tags: ['Systems', 'Go', 'Distributed Systems'],
+        size: 'square',
+        link: '/blog/distributed-file-system',
+    },
+    {
+        id: 13,
+        title: 'Smart Home Hub',
+        description: 'IoT gateway for unification of varied smart home protocols (Zigbee, Z-Wave).',
+        tags: ['IoT', 'Node.js', 'MQTT'],
+        size: 'vertical',
+        link: '/blog/smart-home-hub',
+    },
+    {
+        id: 14,
+        title: 'Quantum Key Distribution',
+        description: 'Simulation of BB84 protocol for quantum cryptography education.',
+        tags: ['Quantum', 'Python', 'Education'],
+        size: 'square',
+        link: '/blog/quantum-key-distribution',
+    },
+    {
+        id: 15,
+        title: 'Bioinformatics DNA Sequencer',
+        description: 'Parallel processing pipeline for FASTQ DNA sequence alignment.',
+        tags: ['Bioinformatics', 'C++', 'OpenMP'],
+        size: 'large',
+        link: '/blog/bioinformatics-dna-sequencer',
     },
 ];
 
@@ -158,6 +245,94 @@ export const blogPosts = [
         tags: ['Quantitative Finance', 'Physics', 'Research'],
         readTime: '13 min',
     },
+    {
+        slug: 'rivalry-mobile-app',
+        title: 'Gamifying Personal Growth: Building the Rivalry Mobile App',
+        description: 'A case study on developing a cross-platform mobile application for personal challenges using Flutter and Dart.',
+        date: '2026-01-18',
+        tags: ['Mobile Dev', 'Flutter', 'Dart', 'UX Design'],
+        readTime: '8 min',
+    },
+    {
+        slug: 'neural-network-visualizer',
+        title: 'Peeking Inside the Black Box: A Neural Network Visualizer',
+        description: 'Building an interactive web tool to visualize activation layers in real-time training sessions using React and D3.js.',
+        date: '2026-01-20',
+        tags: ['Machine Learning', 'React', 'D3.js', 'Visualization'],
+        readTime: '10 min',
+    },
+    {
+        slug: 'defi-liquidity-aggregator',
+        title: 'Solving Slippage: Engineering a DeFi Liquidity Aggregator',
+        description: 'Optimizing trade execution across multiple decentralized exchanges (DEXs) using smart contracts and graph algorithms.',
+        date: '2026-01-12',
+        tags: ['Blockchain', 'Solidity', 'Web3.js', 'DeFi'],
+        readTime: '14 min',
+    },
+    {
+        slug: 'satellite-imagery-analysis',
+        title: 'Mapping the Earth: Satellite Imagery Analysis with PyTorch',
+        description: 'Using Convolutional Neural Networks (CNNs) to classify land usage patterns from Sentinel-2 satellite data.',
+        date: '2026-01-08',
+        tags: ['Computer Vision', 'PyTorch', 'Geospatial', 'GIS'],
+        readTime: '11 min',
+    },
+    {
+        slug: 'encrypted-chat-protocol',
+        title: 'Trust No One: Designing an Encrypted Chat Protocol',
+        description: 'Implementing the Double Ratchet Algorithm in Rust to build a secure, forward-secrecy compliant messaging application.',
+        date: '2026-01-03',
+        tags: ['Cryptography', 'Rust', 'Networking', 'Security'],
+        readTime: '15 min',
+    },
+    {
+        slug: 'high-frequency-trading-bot',
+        title: 'The Microsecond Race: C++ High-Frequency Trading Bot',
+        description: 'Engineering a low-latency market making system for crypto exchanges using C++ and WebSockets.',
+        date: '2025-12-30',
+        tags: ['Quant', 'C++', 'WebSocket', 'Finance'],
+        readTime: '13 min',
+    },
+    {
+        slug: 'generative-art-engine',
+        title: 'Chaos & Code: A Generative Art Engine',
+        description: 'Exploring algorithmic beauty through Perlin noise, flow fields, and particle systems using p5.js and WebGL.',
+        date: '2025-12-25',
+        tags: ['Creative Coding', 'p5.js', 'WebGL', 'Art'],
+        readTime: '7 min',
+    },
+    {
+        slug: 'distributed-file-system',
+        title: 'Reinventing Storage: Building a Distributed File System in Go',
+        description: 'Implementing a fault-tolerant, sharded storage system inspired by GFS and HDFS using Go.',
+        date: '2025-12-18',
+        tags: ['Systems', 'Go', 'Distributed Systems', 'Backend'],
+        readTime: '16 min',
+    },
+    {
+        slug: 'smart-home-hub',
+        title: 'The Universal Translator: Creating a Smart Home Hub',
+        description: 'Unifying fragmented IoT protocols (Zigbee, Z-Wave, WiFi) into a single controlled gateway using Node.js and MQTT.',
+        date: '2025-12-12',
+        tags: ['IoT', 'Node.js', 'MQTT', 'Hardware'],
+        readTime: '11 min',
+    },
+    {
+        slug: 'quantum-key-distribution',
+        title: 'Unbreakable Encryption: Simulating Quantum Key Distribution (BB84)',
+        description: 'A Python-based simulation of the BB84 protocol demonstrating how quantum mechanics guarantees secure communication.',
+        date: '2025-12-08',
+        tags: ['Quantum', 'Python', 'Education', 'Cryptography'],
+        readTime: '12 min',
+    },
+    {
+        slug: 'bioinformatics-dna-sequencer',
+        title: 'Decoading Life: High-Performance DNA Sequence Alignment',
+        description: 'Accelerating the Smith-Waterman algorithm for FASTQ DNA sequence alignment using C++ and OpenMP parallelization.',
+        date: '2025-12-02',
+        tags: ['Bioinformatics', 'C++', 'OpenMP', 'Algorithms'],
+        readTime: '14 min',
+    },
 ];
 
 // Work Experiences (ordered by most recent first)
@@ -193,7 +368,7 @@ export const experiences = [
         role: 'Full-Stack Engineer (Academic Collaboration)',
         company: 'Changlun Smart Agriculture System',
         location: 'Malaysia',
-        period: '2025',
+        period: 'December 2025',
         description: [
             'Architected a scalable SaaS platform for agricultural data management using Django (Python), focusing on backend logic and database schema optimization.',
             'Designed RESTful APIs to handle data ingestion from IoT sensors, ensuring data integrity and efficient query performance.',

@@ -1,0 +1,44 @@
+---
+title: 'Gamifying Personal Growth: Building the Rivalry Mobile App'
+date: '2026-01-18'
+description: 'A case study on developing a cross-platform mobile application for personal challenges using Flutter and Dart.'
+tags: ['Mobile Dev', 'Flutter', 'Dart', 'UX Design']
+readTime: '8 min'
+---
+
+## Introduction
+
+In a world saturated with productivity apps, **Rivalry** attempts to tackle personal growth from a different angle: **competition**. This project explored the psychology of gamification and how it can be applied to habit building through a competitive mobile interface.
+
+## Tech Stack
+
+We chose **Flutter** for this project to ensure a seamless cross-platform experience (iOS and Android) with a single codebase.
+
+*   **Frontend**: Flutter (Dart)
+*   **State Management**: Riverpod
+*   **Backend**: Firebase (Auth, Firestore, Cloud Functions)
+
+## Key Features
+
+### 1. Real-time Challenge Tracking
+Users can invite friends to challenges (e.g., "Read 30 mins daily"). We implemented real-time progress updates using Firestore streams, creating an instant feedback loop that keeps users engaged.
+
+### 2. The "Wager" System
+To increase stakes, we introduced a virtual currency system. This required secure transaction handling within Cloud Functions to prevent client-side manipulation.
+
+```dart
+// Example of a safe transaction wrapper
+Future<void> placeWager(String challengeId, int amount) async {
+  return FirebaseFirestore.instance.runTransaction((transaction) async {
+    // ... validation logic
+  });
+}
+```
+
+## Lessons Learned
+
+Building Rivalry taught me the importance of **optimistic UI updates**. When a user checks off a habit, the UI effectively needs to respond *instantly*, even if the server write takes a few hundred milliseconds. We handled this by updating local state immediately and rolling back only on error.
+
+## Future Roadmap
+
+The next phase involves integrating wearable API support (Apple Health, Google Fit) to automate challenge tracking for fitness-related goals.
