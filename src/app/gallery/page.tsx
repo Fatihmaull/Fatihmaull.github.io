@@ -50,7 +50,7 @@ export default function GalleryPage() {
                     </div>
 
                     {/* Bento Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]" style={{ gridAutoFlow: 'dense' }}>
                         {projects.map((project, index) => {
                             // Map project sizes to grid classes
                             const sizeClasses = {

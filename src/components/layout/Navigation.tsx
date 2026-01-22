@@ -83,9 +83,11 @@ export function Navigation() {
                                 ))}
                             </ul>
 
-                            <Button size="sm" variant="outline">
-                                Resume
-                            </Button>
+                            <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                                <Button size="sm" variant="outline">
+                                    Resume
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -164,9 +166,11 @@ export function Navigation() {
                                     transition={{ delay: 0.5 }}
                                     className="mt-10 text-center"
                                 >
-                                    <Button size="lg" variant="outline">
-                                        Resume
-                                    </Button>
+                                    <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                                        <Button size="lg" variant="outline">
+                                            Resume
+                                        </Button>
+                                    </Link>
                                 </motion.div>
                             </nav>
                         </motion.aside>

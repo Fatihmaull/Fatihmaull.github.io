@@ -486,7 +486,7 @@ export default function HomePage() {
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Gallery</h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr" style={{ gridAutoFlow: 'dense' }}>
                 {projects.slice(0, 5).map((project, index) => {
                   // Map project sizes to grid classes
                   const sizeClasses = {

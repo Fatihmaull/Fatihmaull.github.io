@@ -13,6 +13,11 @@ A blend of rigorous academic research (UIN/UUM) and practical "get-it-done" engi
         linkedin: 'https://linkedin.com/in/fatihmaulana',
         zenodo: 'https://zenodo.org/records/18096724',
         email: 'mailto:fatihmaulanamail@gmail.com',
+        instagram: 'https://instagram.com/fatihmaulana',
+        twitter: 'https://x.com/fatihmaulana',
+        medium: 'https://medium.com/@fatihmaulana',
+        reddit: 'https://reddit.com/user/fatihmaulana',
+        whatsapp: 'https://wa.me/6289618465959',
     },
 };
 
@@ -138,14 +143,6 @@ export const projects = [
         link: '/blog/distributed-file-system',
     },
     {
-        id: 13,
-        title: 'Smart Home Hub',
-        description: 'IoT gateway for unification of varied smart home protocols (Zigbee, Z-Wave).',
-        tags: ['IoT', 'Node.js', 'MQTT'],
-        size: 'vertical',
-        link: '/blog/smart-home-hub',
-    },
-    {
         id: 14,
         title: 'Quantum Key Distribution',
         description: 'Simulation of BB84 protocol for quantum cryptography education.',
@@ -154,11 +151,19 @@ export const projects = [
         link: '/blog/quantum-key-distribution',
     },
     {
+        id: 13,
+        title: 'Smart Home Hub',
+        description: 'IoT gateway for unification of varied smart home protocols (Zigbee, Z-Wave).',
+        tags: ['IoT', 'Node.js', 'MQTT'],
+        size: 'square',
+        link: '/blog/smart-home-hub',
+    },
+    {
         id: 15,
         title: 'Bioinformatics DNA Sequencer',
         description: 'Parallel processing pipeline for FASTQ DNA sequence alignment.',
         tags: ['Bioinformatics', 'C++', 'OpenMP'],
-        size: 'large',
+        size: 'wide',
         link: '/blog/bioinformatics-dna-sequencer',
     },
 ];
