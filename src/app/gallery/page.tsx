@@ -92,6 +92,7 @@ export default function GalleryPage() {
                             };
 
                             const backgroundImage = encodeURI(project.image);
+                            const hasLink = Boolean(project.link && project.link !== '#');
 
                             return (
                                 <article
@@ -136,22 +137,24 @@ export default function GalleryPage() {
                                                 <FolderIcon />
                                             </span>
 
-                                            <div className="flex items-center gap-4">
-                                                <Link
-                                                    href={project.link || '#'}
-                                                    className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
-                                                    aria-label="View on GitHub"
-                                                >
-                                                    <GitHubIcon />
-                                                </Link>
-                                                <Link
-                                                    href={project.link || '#'}
-                                                    className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
-                                                    aria-label="Read Blog Post"
-                                                >
-                                                    <ExternalLinkIcon />
-                                                </Link>
-                                            </div>
+                                            {hasLink && (
+                                                <div className="flex items-center gap-4">
+                                                    <Link
+                                                        href={project.link}
+                                                        className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
+                                                        aria-label="View on GitHub"
+                                                    >
+                                                        <GitHubIcon />
+                                                    </Link>
+                                                    <Link
+                                                        href={project.link}
+                                                        className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
+                                                        aria-label="Read Blog Post"
+                                                    >
+                                                        <ExternalLinkIcon />
+                                                    </Link>
+                                                </div>
+                                            )}
                                         </div>
 
                                         {/* Project Title */}
