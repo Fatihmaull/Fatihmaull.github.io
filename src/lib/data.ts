@@ -78,7 +78,7 @@ export const projects = [
         description: 'Web agency. CI/CD with Cloudflare Tunnel and GitHub Actions.',
         tags: ['CI/CD', 'Cloudflare', 'GitHub Actions'],
         size: 'wide',
-        link: 'https://focustudio.online',
+        link: '#',
     },
     {
         id: 6,
@@ -102,7 +102,7 @@ export const projects = [
         description: 'Founding Engineer and BD. EV financing rails, on-chain settlement, and IoT/DePIN data. 2026.',
         tags: ['Solana', 'DePIN', 'IoT'],
         size: 'square',
-        link: '#',
+        link: 'https://nemesis-protocol.vercel.app/',
     },
     {
         id: 9,
@@ -110,7 +110,7 @@ export const projects = [
         description: 'ERP for student organizations, Next.js and Supabase.',
         tags: ['Next.js', 'Supabase'],
         size: 'square',
-        link: 'https://ormawa-erp.vercel.app',
+        link: '#',
     },
     {
         id: 11,
@@ -134,7 +134,7 @@ export const projects = [
         description: 'Solana, Rust, stablecoins, and a micro-task collateral engine. Jan 2026.',
         tags: ['Solana', 'Rust', 'Stablecoins'],
         size: 'square',
-        link: '#',
+        link: 'https://github.com/Fatihmaull/lancebuzz',
     },
     {
         id: 17,
@@ -190,7 +190,7 @@ export const projects = [
         description: 'Banking simulation with deposit, withdrawal, and investment, using OOP. Jan 2023.',
         tags: ['Java', 'OOP'],
         size: 'square',
-        link: 'https://github.com/Fatihmaull/BANK-DASPRO',
+        link: '#',
     },
     {
         id: 25,
@@ -254,7 +254,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://haji-umrah.vercel.app',
+        link: '#',
     },
     {
         id: 14,
