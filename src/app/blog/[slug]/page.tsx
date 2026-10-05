@@ -3,20 +3,17 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getBlogPost, getAllBlogSlugs } from '@/lib/mdx';
-import { blogPosts } from '@/lib/data';
+import { blogPosts, writingSlugs } from '@/lib/data';
 import { generateArticleSchema } from '@/lib/metadata';
-import { Navigation, Footer, Container } from '@/components/layout';
-import { Tag } from '@/components/ui';
+import { SiteFrame } from '@/components/layout/SiteFrame';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
-// Generate static paths for all blog posts
 export async function generateStaticParams() {
     const slugs = await getAllBlogSlugs();
 
-    // If no MDX files, use static data
     if (slugs.length === 0) {
         return blogPosts.map((post) => ({
             slug: post.slug,
@@ -26,12 +23,9 @@ export async function generateStaticParams() {
     return slugs.map((slug) => ({ slug }));
 }
 
-// Generate metadata for each post
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     const post = await getBlogPost(slug);
-
-    // Fallback to static data if no MDX file
     const staticPost = blogPosts.find((p) => p.slug === slug);
     const postData = post || staticPost;
 
@@ -56,8 +50,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
     const post = await getBlogPost(slug);
-
-    // Try static data if no MDX file
     const staticPost = blogPosts.find((p) => p.slug === slug);
 
     if (!post && !staticPost) {
@@ -66,12 +58,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 
     const postData = post || staticPost;
     const hasContent = post?.content;
+    const isWriting = writingSlugs.includes(slug);
+    const archiveHref = isWriting ? '/blog/' : '/projects/';
+    const archiveLabel = isWriting ? 'Writing & Research' : 'Project Archive';
 
     return (
-        <>
-            <Navigation />
-
-            {/* JSON-LD Schema */}
+        <SiteFrame active={isWriting ? 'blog' : 'projects'}>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -84,79 +76,55 @@ export default async function BlogPostPage({ params }: PageProps) {
                 }}
             />
 
-            <main className="pt-32 pb-24">
-                <Container size="narrow">
-                    {/* Back link */}
-                    <Link
-                        href="/blog"
-                        className="inline-flex items-center gap-2 font-mono text-sm text-[var(--accent)] hover:underline underline-offset-4 mb-8"
-                    >
-                        ← All Posts
-                    </Link>
+            <Link
+                href={archiveHref}
+                className="inline-flex items-center text-sm font-medium text-slate-400 hover:text-teal-300"
+            >
+                ← {archiveLabel}
+            </Link>
 
-                    {/* Article Header */}
-                    <header className="mb-12">
-                        {/* Date */}
-                        <p className="font-mono text-sm text-[var(--accent)] mb-4">
-                            {new Date(postData!.date).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric',
-                            })}
-                            <span className="text-[var(--slate-dark)] ml-4">
-                                · {postData!.readTime} read
-                            </span>
-                        </p>
+            <header className="mb-10 mt-6">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    {new Date(postData!.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                    })}
+                    <span className="ml-3 normal-case tracking-normal">
+                        {postData!.readTime} read
+                    </span>
+                </p>
+                <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-200 sm:text-3xl" style={{ lineHeight: '1.2' }}>
+                    {postData!.title}
+                </h2>
+                <p className="mt-4 text-slate-400" style={{ lineHeight: '1.625' }}>
+                    {postData!.description}
+                </p>
+                <ul className="mt-2 flex flex-wrap" aria-label="Topics">
+                    {postData!.tags.map((tag) => (
+                        <li key={tag}>
+                            <span className="experience-tag">{tag}</span>
+                        </li>
+                    ))}
+                </ul>
+            </header>
 
-                        {/* Title */}
-                        <h1 className="text-3xl md:text-4xl font-bold text-[var(--slate-light)] mb-6 leading-tight">
-                            {postData!.title}
-                        </h1>
+            <article className="post-body">
+                {hasContent ? (
+                    <MDXRemote source={post!.content} />
+                ) : (
+                    <p className="text-slate-400">This note is still a draft.</p>
+                )}
+            </article>
 
-                        {/* Description */}
-                        <p className="text-lg text-[var(--slate)] mb-6">
-                            {postData!.description}
-                        </p>
-
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-2">
-                            {postData!.tags.map((tag) => (
-                                <Tag key={tag} variant="default" size="md">
-                                    {tag}
-                                </Tag>
-                            ))}
-                        </div>
-                    </header>
-
-                    {/* Article Content */}
-                    <article className="prose prose-invert prose-lg max-w-none">
-                        {hasContent ? (
-                            <MDXRemote source={post!.content} />
-                        ) : (
-                            <div className="bg-[var(--navy-light)] rounded-lg p-8 text-center">
-                                <p className="text-[var(--slate)] mb-4">
-                                    This article is coming soon. Check back later for the full content!
-                                </p>
-                                <p className="font-mono text-sm text-[var(--slate-dark)]">
-                                    Status: Draft
-                                </p>
-                            </div>
-                        )}
-                    </article>
-
-                    {/* Footer navigation */}
-                    <div className="mt-16 pt-8 border-t border-[var(--navy-lighter)]">
-                        <Link
-                            href="/blog"
-                            className="font-mono text-sm text-[var(--accent)] hover:underline underline-offset-4"
-                        >
-                            ← Back to all posts
-                        </Link>
-                    </div>
-                </Container>
-            </main>
-
-            <Footer />
-        </>
+            <div className="mt-16">
+                <Link
+                    href={archiveHref}
+                    className="text-sm font-medium text-slate-400 hover:text-teal-300"
+                >
+                    ← {archiveLabel}
+                </Link>
+            </div>
+        </SiteFrame>
     );
 }
