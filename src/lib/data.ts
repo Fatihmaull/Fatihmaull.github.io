@@ -13,6 +13,7 @@ export const profile = {
         email: 'mailto:fatihmaulanamail@gmail.com',
         whatsapp: 'https://wa.me/6289618465959',
         scholar: 'https://scholar.google.com/citations?user=e1GBi2cAAAAJ&hl=en',
+        instagram: 'https://instagram.com/fatihmaull',
     },
 };
 
@@ -863,7 +864,7 @@ export const experiences = [
         id: 13,
         role: 'Stellar Ambassador',
         company: 'Stellar Development Foundation',
-        link: '#',
+        link: 'https://stellar.org/',
         location: 'Remote',
         period: 'August 2026 — Present',
         description: [],
