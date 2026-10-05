@@ -508,6 +508,7 @@ export const experiences = [
         id: 1,
         role: 'Project Manager Intern',
         company: 'Ibunda.id',
+        link: 'https://www.ibunda.id/',
         location: 'Bandung, Indonesia (Hybrid)',
         period: 'Oct 2026 — Apr 2027',
         description: [],
@@ -517,6 +518,7 @@ export const experiences = [
         id: 2,
         role: 'Forward Deployed Engineer & Product Owner',
         company: 'Daemon Protocol',
+        link: 'https://www.linkedin.com/company/daemonprotocol/',
         location: 'Remote',
         period: 'Apr 2026 — Present',
         description: [
@@ -531,6 +533,7 @@ export const experiences = [
         id: 3,
         role: 'City Builders Lead',
         company: 'BlockDev.ID',
+        link: 'https://www.instagram.com/blockdev_org/',
         location: 'Bandung',
         period: 'Jun 2026 — Jul 2026',
         description: [
@@ -542,8 +545,9 @@ export const experiences = [
     },
     {
         id: 4,
-        role: 'Instaward Awardee, Developer Tooling',
+        role: 'Instaward Grantee, Developer Tooling',
         company: 'Stellar Development Foundation (Stellar Community Fund)',
+        link: 'https://stellar.org/',
         location: 'Remote',
         period: '2026',
         description: [
@@ -555,6 +559,7 @@ export const experiences = [
         id: 5,
         role: 'Lead',
         company: 'Superteam Campus Club UIN Bandung',
+        link: 'https://www.instagram.com/scc.uinsgd/',
         location: 'Bandung, Indonesia',
         period: 'Feb 2026 — Present',
         description: [
@@ -566,6 +571,7 @@ export const experiences = [
         id: 6,
         role: 'GRC Member',
         company: 'Wo-Men in Tech Security',
+        link: 'https://www.linkedin.com/company/wo-men-in-tech-security/',
         location: 'Remote',
         period: 'Nov 2025 — Mar 2026',
         description: [
@@ -579,6 +585,7 @@ export const experiences = [
         id: 7,
         role: 'Full-Stack Engineer (Academic Collaboration)',
         company: 'Changlun Smart Agriculture System',
+        link: 'https://www.uum.edu.my/',
         location: 'Malaysia',
         period: 'Dec 2025',
         description: [
@@ -592,6 +599,7 @@ export const experiences = [
         id: 8,
         role: 'Security Consultant & Interim Lead',
         company: 'National Student Election System for CSSMoRA Indonesia',
+        link: 'https://cssmora.org/',
         location: 'Remote',
         period: 'Nov 2025 — Dec 2025',
         description: [
@@ -604,6 +612,7 @@ export const experiences = [
         id: 9,
         role: 'Technical Writer & Analyst',
         company: 'Ibunda.id',
+        link: 'https://www.ibunda.id/',
         location: 'Bandung, Indonesia',
         period: 'Jun 2025 — Oct 2025',
         description: [
@@ -618,6 +627,7 @@ export const experiences = [
         id: 10,
         role: 'Front-End Engineer',
         company: 'StudentxCEOs Bandung Chapter',
+        link: 'https://www.studentsxceos.org/',
         location: 'Bandung, Indonesia',
         period: 'Jan 2025 — Jun 2025',
         description: [
@@ -644,6 +654,7 @@ export const experiences = [
         id: 12,
         role: 'Technical Support Specialist & Virtual Coordinator',
         company: 'Indonesian Ministry of Religious Affairs (w/ LPDP)',
+        link: 'https://kemenag.go.id/',
         location: 'Jakarta, Indonesia',
         period: 'Apr 2024 — Apr 2025',
         description: [
