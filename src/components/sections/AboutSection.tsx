@@ -5,16 +5,14 @@ import { Section, SectionHeading } from '@/components/layout';
 import { profile } from '@/lib/data';
 
 const skills = [
-    'Quantum Computing',
-    'Cybersecurity',
-    'Full-Stack Development',
-    'Quantitative Finance',
     'Python',
     'TypeScript',
+    'Rust',
+    'Solidity',
     'Next.js',
-    'Flutter',
     'Django',
-    'Machine Learning',
+    'Flutter',
+    'Security',
 ];
 
 export function AboutSection() {
@@ -32,24 +30,22 @@ export function AboutSection() {
                     className="space-y-4"
                 >
                     <p className="text-[var(--slate)] leading-relaxed">
-                        Hello! I&apos;m <span className="text-[var(--accent)]">{profile.name}</span>, a Computer Science
-                        Researcher & Engineer currently on an exchange program at{' '}
-                        <span className="text-[var(--accent)]">Universiti Utara Malaysia (UUM)</span>.
-                        I&apos;m on a Summa Cum Laude track, blending rigorous academic research with practical
-                        engineering solutions.
+                        Hello! I&apos;m <span className="text-[var(--accent)]">{profile.name}</span>, an engineer and
+                        researcher at the intersection of{' '}
+                        <span className="text-[var(--accent)]">distributed systems</span>,{' '}
+                        <span className="text-[var(--accent)]">applied cryptography</span>, and{' '}
+                        <span className="text-[var(--accent)]">AI</span>.
                     </p>
 
                     <p className="text-[var(--slate)] leading-relaxed">
-                        My expertise spans across <span className="text-[var(--accent)]">Quantum Computing</span>,{' '}
-                        <span className="text-[var(--accent)]">Quantitative Finance</span>, and{' '}
-                        <span className="text-[var(--accent)]">Cybersecurity</span>. I believe in building systems
-                        that are not just functional, but also secure, scalable, and future-ready.
+                        I&apos;m a Forward Deployed Engineer solving end-to-end business problems with technology and AI,
+                        and I&apos;ve shipped production apps for SMEs and early-stage startups since 2024.
                     </p>
 
                     <p className="text-[var(--slate)] leading-relaxed">
-                        Currently, I&apos;m focused on benchmarking hybrid quantum-classical algorithms and
-                        exploring the intersection of physics and finance. When I&apos;m not coding, you&apos;ll
-                        find me diving deep into research papers or contributing to open-source projects.
+                        First-author research covers post-quantum cryptography for high-throughput blockchains and
+                        blockchain supply-chain traceability (gold medal). I also contribute to Stellar open source,
+                        with build experience on Solana and Base.
                     </p>
 
                     <p className="text-[var(--slate)] leading-relaxed mb-6">

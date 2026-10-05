@@ -27,9 +27,9 @@ export function ContactSection() {
                 {/* Description */}
                 <p className="text-[var(--slate)] max-w-lg mx-auto mb-12 leading-relaxed">
                     I&apos;m currently looking for new opportunities in{' '}
-                    <span className="text-[var(--accent)]">Quantum Computing</span>,{' '}
-                    <span className="text-[var(--accent)]">Cybersecurity</span>, and{' '}
-                    <span className="text-[var(--accent)]">Full-Stack Development</span>.
+                    <span className="text-[var(--accent)]">distributed systems</span>,{' '}
+                    <span className="text-[var(--accent)]">applied cryptography</span>, and{' '}
+                    <span className="text-[var(--accent)]">AI</span>.
                     Whether you have a question, a project idea, or just want to say hi,
                     my inbox is always open!
                 </p>
