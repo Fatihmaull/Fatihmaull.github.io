@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Navigation, Footer, Container } from '@/components/layout';
-import { projects } from '@/lib/data';
+import { projects, galleryArchive } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -31,10 +31,36 @@ const FolderIcon = () => (
 
 // Map project IDs to specific images that match their themes
 const projectImages: Record<number, string> = {
+    1: '/images/previews/evergreen.webp',
+    2: '/images/previews/halalchain.webp',
+    3: '/images/previews/ares.webp',
+    4: '/images/previews/parity.webp',
+    5: '/images/previews/focu.webp',
     18: '/images/game.png',
     22: '/images/djikstra.png',
+    23: '/images/iot.png',
+    24: '/images/javaoop.png',
+    26: '/images/lokalii.png',
+    27: '/images/php.png',
     28: '/images/GAME PSI (4).png',
 };
+
+const galleryItems: {
+    id: number;
+    title: string;
+    description: string;
+    tags: string[];
+    size: string;
+    link: string;
+    image: string;
+    featured?: boolean;
+}[] = [
+    ...projects.map((project) => ({
+        ...project,
+        image: projectImages[project.id] || '/images/work.jpg',
+    })),
+    ...galleryArchive,
+];
 
 export default function GalleryPage() {
     return (
@@ -56,7 +82,7 @@ export default function GalleryPage() {
 
                     {/* Bento Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]" style={{ gridAutoFlow: 'dense' }}>
-                        {projects.map((project, index) => {
+                        {galleryItems.map((project) => {
                             // Map project sizes to grid classes
                             const sizeClasses = {
                                 large: 'md:col-span-2 md:row-span-2',
@@ -65,7 +91,7 @@ export default function GalleryPage() {
                                 square: '',
                             };
 
-                            const backgroundImage = projectImages[project.id] || '/images/work.jpg';
+                            const backgroundImage = encodeURI(project.image);
 
                             return (
                                 <article
@@ -80,7 +106,7 @@ export default function GalleryPage() {
                                         sizeClasses[project.size as keyof typeof sizeClasses]
                                     )}
                                     style={{
-                                        backgroundImage: `url(${backgroundImage})`,
+                                        backgroundImage: `url("${backgroundImage}")`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         backgroundRepeat: 'no-repeat',
