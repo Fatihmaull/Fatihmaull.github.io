@@ -29,21 +29,9 @@ const sectionIds = ['about', 'experience', 'projects', 'gallery'];
 
 // Map project IDs to specific images that match their themes
 const projectImages: Record<number, string> = {
-  1: '/images/hero.jpg', // Quantum Higgs Boson - research/quantum theme
-  2: '/images/game.png', // Rivalry Mobile App - mobile/gaming theme
-  3: '/images/work.jpg', // National Voting System - work/professional
-  4: '/images/iot.png', // Changlun Smart Agriculture - IoT theme
-  5: '/images/tw.png', // Bitcoin EMH Analysis - trading/finance
-  6: '/images/javaoop.png', // Neural Network Visualizer - coding/tech
-  7: '/images/xchange.jpg', // DeFi Liquidity Aggregator - blockchain/finance
-  8: '/images/about1.png', // Satellite Imagery Analysis - geospatial
-  9: '/images/css.jpg', // Encrypted Chat Protocol - security/coding
-  10: '/images/tw2.png', // High-Frequency Trading Bot - trading
-  11: '/images/GAME PSI (4).png', // Generative Art Engine - creative/art
-  12: '/images/work.jpg', // Distributed File System - systems/work
-  13: '/images/iot.png', // Smart Home Hub - IoT
-  14: '/images/hero.jpg', // Quantum Key Distribution - quantum
-  15: '/images/school.jpg', // Bioinformatics DNA Sequencer - research/education
+  18: '/images/game.png',
+  22: '/images/djikstra.png',
+  28: '/images/GAME PSI (4).png',
 };
 
 export default function HomePage() {
@@ -112,12 +100,12 @@ export default function HomePage() {
 
               {/* Title */}
               <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-                Quantum Researcher & Full-Stack Engineer
+                Forward Deployed Engineer & Researcher
               </h2>
 
               {/* Short Bio */}
               <p className="mt-4 max-w-xs text-slate-400" style={{ lineHeight: '1.6' }}>
-                I build secure, scalable systems for the quantum era — from research algorithms to production applications.
+                Engineer and researcher at the intersection of distributed systems, applied cryptography, and AI.
               </p>
 
               {/* Navigation */}
@@ -208,52 +196,29 @@ export default function HomePage() {
 
               <div>
                 <p className="mb-4" style={{ lineHeight: '1.625' }}>
-                  I&apos;m a frontend engineer with a specialty in{' '}
-                  <span className="font-medium text-slate-200">quantum computing research</span>,
-                  focused on building pixel-perfect, intuitive user interfaces. I enjoy working at
-                  the intersection of design and engineering, where great user experience meets
-                  robust, clean, and scalable code.
+                  Engineer and researcher at the intersection of{' '}
+                  <span className="font-medium text-slate-200">distributed systems</span>,{' '}
+                  <span className="font-medium text-slate-200">applied cryptography</span>, and{' '}
+                  <span className="font-medium text-slate-200">AI</span>.
+                  Forward Deployed Engineer solving end-to-end business problems with technology and AI.
                 </p>
 
                 <p className="mb-4" style={{ lineHeight: '1.625' }}>
-                  Currently, I&apos;m a{' '}
-                  <span className="font-medium text-slate-200">Computer Science Researcher</span> at{' '}
-                  <Link
-                    href="https://uum.edu.my"
-                    target="_blank"
-                    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
-                  >
-                    Universiti Utara Malaysia
-                  </Link>
-                  , where I work on benchmarking hybrid quantum-classical algorithms. In this role,
-                  I lead research efforts across VQC optimization, particle physics classification,
-                  and ML patterns, partnering closely with professors and engineers to ensure
-                  research translates to practical applications.
+                  Shipped production apps for SMEs and early-stage startups since 2024.
+                  First-author research in post-quantum cryptography for high-throughput blockchains
+                  and blockchain supply-chain traceability{' '}
+                  <span className="font-medium text-slate-200">(gold medal)</span>.
                 </p>
 
                 <p className="mb-4" style={{ lineHeight: '1.625' }}>
-                  Previously, I&apos;ve worked across a wide range of environments, from{' '}
-                  <Link href="#" className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300">
-                    government institutions
-                  </Link>{' '}
-                  to startups and tech companies, including{' '}
-                  <Link href="#" className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300">
-                    Ibunda.id
-                  </Link>{' '}
-                  and{' '}
-                  <Link href="#" className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300">
-                    StudentxCEOs
-                  </Link>
-                  . Alongside my professional work, I also salvaged a{' '}
-                  <Link href="#" className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300">
-                    national voting system
-                  </Link>{' '}
-                  24 hours before launch. These experiences have shaped how I think about building
-                  products that are both well-crafted and widely usable.
+                  Grant-funded{' '}
+                  <span className="font-medium text-slate-200">Stellar</span> open-source contributor,
+                  with build experience on{' '}
+                  <span className="font-medium text-slate-200">Solana</span> and{' '}
+                  <span className="font-medium text-slate-200">Base</span>.
                 </p>
                 <p style={{ lineHeight: '1.625' }}>
-                  Outside of work, you can usually find me diving into research papers on quantum
-                  machine learning or exploring the intersection of physics and high-frequency trading.
+                  Security practice covers ISO 27001 and SOC 2 audit support, penetration testing, and smart contract review.
                 </p>
               </div>
             </section>
@@ -433,7 +398,7 @@ export default function HomePage() {
                           <h3>
                             <a
                               className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-                              href="#"
+                              href={project.link || '#'}
                             >
                               <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                               <span>

@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export const metadata: Metadata = {
     title: 'Gallery - Project Archive',
-    description: 'A collection of projects, experiments, and research work.',
+    description: 'Selected projects in distributed systems, applied cryptography, and production software.',
 };
 
 // Social icons (reused from page.tsx for consistency)
@@ -31,28 +31,9 @@ const FolderIcon = () => (
 
 // Map project IDs to specific images that match their themes
 const projectImages: Record<number, string> = {
-    1: '/images/hero.jpg', // Quantum Higgs Boson - research/quantum theme
-    2: '/images/game.png', // Rivalry Mobile App - mobile/gaming theme
-    3: '/images/work.jpg', // National Voting System - work/professional
-    4: '/images/iot.png', // Changlun Smart Agriculture - IoT theme
-    5: '/images/tw.png', // Bitcoin EMH Analysis - trading/finance
-    6: '/images/javaoop.png', // Neural Network Visualizer - coding/tech
-    7: '/images/xchange.jpg', // DeFi Liquidity Aggregator - blockchain/finance
-    8: '/images/about1.png', // Satellite Imagery Analysis - geospatial
-    9: '/images/css.jpg', // Encrypted Chat Protocol - security/coding
-    10: '/images/tw2.png', // High-Frequency Trading Bot - trading
-    11: '/images/GAME PSI (4).png', // Generative Art Engine - creative/art
-    12: '/images/work.jpg', // Distributed File System - systems/work
-    13: '/images/iot.png', // Smart Home Hub - IoT
-    14: '/images/hero.jpg', // Quantum Key Distribution - quantum
-    15: '/images/school.jpg', // Bioinformatics DNA Sequencer - research/education
-    16: '/images/wordpress dan blog (2).png', // Technical Documentation System - documentation/writing
-    17: '/images/javaoop.png', // Sentiment Analysis with SVM - ML/coding
-    18: '/images/css.jpg', // Microservices API Documentation - API/architecture
-    19: '/images/psde.jpg', // Code Quality Monitoring - DevOps/monitoring
-    20: '/images/php.png', // Next.js SSR Optimization - web dev
-    21: '/images/sxc.png', // CI/CD Pipeline - DevOps/automation
-    22: '/images/volunteer.jpg', // Virtual Event Infrastructure - infrastructure/events
+    18: '/images/game.png',
+    22: '/images/djikstra.png',
+    28: '/images/GAME PSI (4).png',
 };
 
 export default function GalleryPage() {
@@ -69,8 +50,7 @@ export default function GalleryPage() {
                             Project Archive
                         </h1>
                         <p className="text-[var(--slate)] max-w-xl text-lg leading-relaxed">
-                            A selected collection of my work in quantum computing research,
-                            software engineering, and system security.
+                            Selected projects in distributed systems, applied cryptography, and production software.
                         </p>
                     </div>
 

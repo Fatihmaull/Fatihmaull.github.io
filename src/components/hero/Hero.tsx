@@ -38,7 +38,7 @@ export function Hero() {
                         transition={{ delay: 0.3, duration: 0.5 }}
                         className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--slate)] mb-8"
                     >
-                        I build things for the quantum era.
+                        I ship production systems with technology and AI.
                     </motion.h2>
 
                     {/* Bio */}
@@ -48,11 +48,10 @@ export function Hero() {
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="text-[var(--slate)] text-base md:text-lg mb-8 leading-relaxed max-w-xl"
                     >
-                        I&apos;m a <span className="text-[var(--accent)]">Computer Science Researcher</span> specializing in{' '}
-                        <span className="text-[var(--accent)]">Quantum Computing</span>,{' '}
-                        <span className="text-[var(--accent)]">Quantitative Finance</span>, and{' '}
-                        <span className="text-[var(--accent)]">Cybersecurity</span>. Currently on an exchange program in Malaysia,
-                        pursuing a Summa Cum Laude track.
+                        I&apos;m an <span className="text-[var(--accent)]">engineer and researcher</span> at the intersection of{' '}
+                        <span className="text-[var(--accent)]">distributed systems</span>,{' '}
+                        <span className="text-[var(--accent)]">applied cryptography</span>, and{' '}
+                        <span className="text-[var(--accent)]">AI</span>. Based in Bandung, Indonesia.
                     </motion.p>
 
                     {/* Skill Tags */}
