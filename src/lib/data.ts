@@ -54,7 +54,7 @@ export const projects = [
         description: 'Trustless batch traceability on Base L2. First author; gold medal, ICYMS 2026.',
         tags: ['Base', 'Solidity', 'Next.js'],
         size: 'vertical',
-        link: 'https://halal-chain-tawny.vercel.app',
+        link: 'https://github.com/Fatihmaull/halal-chain',
     },
     {
         id: 3,
@@ -62,7 +62,7 @@ export const projects = [
         description: 'Agentic AI platform (Hermes workflow) for vulnerability detection in Solana smart contracts. Daemon Protocol.',
         tags: ['Solana', 'AI', 'Security'],
         size: 'square',
-        link: 'https://ares-web-xi.vercel.app',
+        link: 'https://github.com/Fatihmaull/ARES',
     },
     {
         id: 4,
@@ -70,7 +70,7 @@ export const projects = [
         description: 'Every PreStock on Solana, priced correctly. Stocklana hackathon, PreStocks bounty.',
         tags: ['Solana'],
         size: 'square',
-        link: 'https://parity-khaki-pi.vercel.app',
+        link: 'https://github.com/Fatihmaull/parity',
     },
     {
         id: 5,
@@ -126,7 +126,7 @@ export const projects = [
         description: 'Web3 audit framework and blockchain report verification. Feb 2026.',
         tags: ['Web3', 'Audit'],
         size: 'square',
-        link: 'https://auditorum-inky.vercel.app',
+        link: 'https://github.com/Fatihmaull/auditorum',
     },
     {
         id: 16,
@@ -142,7 +142,7 @@ export const projects = [
         description: 'Mascot and identity generator.',
         tags: ['AI'],
         size: 'square',
-        link: 'https://brandkin-ai.vercel.app',
+        link: 'https://github.com/Fatihmaull/brandkinAI',
     },
     {
         id: 18,
@@ -150,7 +150,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://rivalry-ashy.vercel.app',
+        link: 'https://github.com/Fatihmaull/rivalry',
     },
     {
         id: 20,
@@ -238,7 +238,7 @@ export const projects = [
         description: '',
         tags: ['Stellar'],
         size: 'square',
-        link: 'https://kivo-on-stellar.vercel.app',
+        link: 'https://github.com/Fatihmaull/kivo-on-stellar',
     },
     {
         id: 12,
@@ -246,7 +246,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://masjid-os-omega.vercel.app',
+        link: 'https://github.com/Fatihmaull/masjidOS',
     },
     {
         id: 13,
@@ -262,7 +262,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://presentations-pi-blue.vercel.app',
+        link: 'https://github.com/Fatihmaull/bandung-builders',
     },
     {
         id: 19,
