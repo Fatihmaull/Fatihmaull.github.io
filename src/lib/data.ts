@@ -54,7 +54,7 @@ export const projects = [
         description: 'Trustless batch traceability on Base L2. First author; gold medal, ICYMS 2026.',
         tags: ['Base', 'Solidity', 'Next.js'],
         size: 'vertical',
-        link: 'https://halal-chain-tawny.vercel.app',
+        link: 'https://github.com/Fatihmaull/halal-chain',
     },
     {
         id: 3,
@@ -62,7 +62,7 @@ export const projects = [
         description: 'Agentic AI platform (Hermes workflow) for vulnerability detection in Solana smart contracts. Daemon Protocol.',
         tags: ['Solana', 'AI', 'Security'],
         size: 'square',
-        link: 'https://ares-web-xi.vercel.app',
+        link: 'https://github.com/Fatihmaull/ARES',
     },
     {
         id: 4,
@@ -70,7 +70,7 @@ export const projects = [
         description: 'Every PreStock on Solana, priced correctly. Stocklana hackathon, PreStocks bounty.',
         tags: ['Solana'],
         size: 'square',
-        link: 'https://parity-khaki-pi.vercel.app',
+        link: 'https://github.com/Fatihmaull/parity',
     },
     {
         id: 5,
@@ -78,7 +78,7 @@ export const projects = [
         description: 'Web agency. CI/CD with Cloudflare Tunnel and GitHub Actions.',
         tags: ['CI/CD', 'Cloudflare', 'GitHub Actions'],
         size: 'wide',
-        link: 'https://focustudio.online',
+        link: '#',
     },
     {
         id: 6,
@@ -102,7 +102,7 @@ export const projects = [
         description: 'Founding Engineer and BD. EV financing rails, on-chain settlement, and IoT/DePIN data. 2026.',
         tags: ['Solana', 'DePIN', 'IoT'],
         size: 'square',
-        link: '#',
+        link: 'https://nemesis-protocol.vercel.app/',
     },
     {
         id: 9,
@@ -110,7 +110,7 @@ export const projects = [
         description: 'ERP for student organizations, Next.js and Supabase.',
         tags: ['Next.js', 'Supabase'],
         size: 'square',
-        link: 'https://ormawa-erp.vercel.app',
+        link: '#',
     },
     {
         id: 11,
@@ -126,7 +126,7 @@ export const projects = [
         description: 'Web3 audit framework and blockchain report verification. Feb 2026.',
         tags: ['Web3', 'Audit'],
         size: 'square',
-        link: 'https://auditorum-inky.vercel.app',
+        link: 'https://github.com/Fatihmaull/auditorum',
     },
     {
         id: 16,
@@ -134,7 +134,7 @@ export const projects = [
         description: 'Solana, Rust, stablecoins, and a micro-task collateral engine. Jan 2026.',
         tags: ['Solana', 'Rust', 'Stablecoins'],
         size: 'square',
-        link: '#',
+        link: 'https://github.com/Fatihmaull/lancebuzz',
     },
     {
         id: 17,
@@ -142,7 +142,7 @@ export const projects = [
         description: 'Mascot and identity generator.',
         tags: ['AI'],
         size: 'square',
-        link: 'https://brandkin-ai.vercel.app',
+        link: 'https://github.com/Fatihmaull/brandkinAI',
     },
     {
         id: 18,
@@ -150,7 +150,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://rivalry-ashy.vercel.app',
+        link: 'https://github.com/Fatihmaull/rivalry',
     },
     {
         id: 20,
@@ -190,7 +190,7 @@ export const projects = [
         description: 'Banking simulation with deposit, withdrawal, and investment, using OOP. Jan 2023.',
         tags: ['Java', 'OOP'],
         size: 'square',
-        link: 'https://github.com/Fatihmaull/BANK-DASPRO',
+        link: '#',
     },
     {
         id: 25,
@@ -238,7 +238,7 @@ export const projects = [
         description: '',
         tags: ['Stellar'],
         size: 'square',
-        link: 'https://kivo-on-stellar.vercel.app',
+        link: 'https://github.com/Fatihmaull/kivo-on-stellar',
     },
     {
         id: 12,
@@ -246,7 +246,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://masjid-os-omega.vercel.app',
+        link: 'https://github.com/Fatihmaull/masjidOS',
     },
     {
         id: 13,
@@ -254,7 +254,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://haji-umrah.vercel.app',
+        link: '#',
     },
     {
         id: 14,
@@ -262,7 +262,7 @@ export const projects = [
         description: '',
         tags: [],
         size: 'square',
-        link: 'https://presentations-pi-blue.vercel.app',
+        link: 'https://github.com/Fatihmaull/bandung-builders',
     },
     {
         id: 19,
@@ -508,6 +508,7 @@ export const experiences = [
         id: 1,
         role: 'Project Manager Intern',
         company: 'Ibunda.id',
+        link: 'https://www.ibunda.id/',
         location: 'Bandung, Indonesia (Hybrid)',
         period: 'Oct 2026 — Apr 2027',
         description: [],
@@ -517,6 +518,7 @@ export const experiences = [
         id: 2,
         role: 'Forward Deployed Engineer & Product Owner',
         company: 'Daemon Protocol',
+        link: 'https://www.linkedin.com/company/daemonprotocol/',
         location: 'Remote',
         period: 'Apr 2026 — Present',
         description: [
@@ -531,6 +533,7 @@ export const experiences = [
         id: 3,
         role: 'City Builders Lead',
         company: 'BlockDev.ID',
+        link: 'https://www.instagram.com/blockdev_org/',
         location: 'Bandung',
         period: 'Jun 2026 — Jul 2026',
         description: [
@@ -542,8 +545,9 @@ export const experiences = [
     },
     {
         id: 4,
-        role: 'Instaward Awardee, Developer Tooling',
+        role: 'Instaward Grantee, Developer Tooling',
         company: 'Stellar Development Foundation (Stellar Community Fund)',
+        link: 'https://stellar.org/',
         location: 'Remote',
         period: '2026',
         description: [
@@ -555,6 +559,7 @@ export const experiences = [
         id: 5,
         role: 'Lead',
         company: 'Superteam Campus Club UIN Bandung',
+        link: 'https://www.instagram.com/scc.uinsgd/',
         location: 'Bandung, Indonesia',
         period: 'Feb 2026 — Present',
         description: [
@@ -566,6 +571,7 @@ export const experiences = [
         id: 6,
         role: 'GRC Member',
         company: 'Wo-Men in Tech Security',
+        link: 'https://www.linkedin.com/company/wo-men-in-tech-security/',
         location: 'Remote',
         period: 'Nov 2025 — Mar 2026',
         description: [
@@ -579,6 +585,7 @@ export const experiences = [
         id: 7,
         role: 'Full-Stack Engineer (Academic Collaboration)',
         company: 'Changlun Smart Agriculture System',
+        link: 'https://www.uum.edu.my/',
         location: 'Malaysia',
         period: 'Dec 2025',
         description: [
@@ -592,6 +599,7 @@ export const experiences = [
         id: 8,
         role: 'Security Consultant & Interim Lead',
         company: 'National Student Election System for CSSMoRA Indonesia',
+        link: 'https://cssmora.org/',
         location: 'Remote',
         period: 'Nov 2025 — Dec 2025',
         description: [
@@ -604,6 +612,7 @@ export const experiences = [
         id: 9,
         role: 'Technical Writer & Analyst',
         company: 'Ibunda.id',
+        link: 'https://www.ibunda.id/',
         location: 'Bandung, Indonesia',
         period: 'Jun 2025 — Oct 2025',
         description: [
@@ -618,6 +627,7 @@ export const experiences = [
         id: 10,
         role: 'Front-End Engineer',
         company: 'StudentxCEOs Bandung Chapter',
+        link: 'https://www.studentsxceos.org/',
         location: 'Bandung, Indonesia',
         period: 'Jan 2025 — Jun 2025',
         description: [
@@ -644,6 +654,7 @@ export const experiences = [
         id: 12,
         role: 'Technical Support Specialist & Virtual Coordinator',
         company: 'Indonesian Ministry of Religious Affairs (w/ LPDP)',
+        link: 'https://kemenag.go.id/',
         location: 'Jakarta, Indonesia',
         period: 'Apr 2024 — Apr 2025',
         description: [
