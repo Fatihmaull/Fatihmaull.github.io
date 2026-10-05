@@ -579,6 +579,18 @@ export const galleryArchive = [
     },
 ];
 
+// Essays and guides listed on /blog. Every other MDX post is a build note on /projects.
+// Detail URLs stay at /blog/[slug].
+export const writingSlugs = [
+    'vqc-higgs-boson-detection',
+    'bitcoin-emh-quantitative-analysis',
+    'physics-to-finance-trading',
+    'web-penetration-testing-guide',
+    'technical-documentation-system',
+    'microservices-api-documentation',
+    'grc-automation-vanta-iso27001',
+];
+
 // Blog Post Metadata
 export const blogPosts = [
     {

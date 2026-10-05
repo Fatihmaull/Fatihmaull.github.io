@@ -1,16 +1,13 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Navigation, Footer, Container } from '@/components/layout';
+import { SiteFrame } from '@/components/layout/SiteFrame';
 import { projects, galleryArchive } from '@/lib/data';
-import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
 
 export const metadata: Metadata = {
-    title: 'Gallery - Project Archive',
-    description: 'Selected projects in distributed systems, applied cryptography, and production software.',
+    title: 'Gallery',
+    description: 'Selected projects, photos, and activity from the archive.',
 };
 
-// Social icons (reused from page.tsx for consistency)
 const GitHubIcon = () => (
     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
@@ -29,7 +26,6 @@ const FolderIcon = () => (
     </svg>
 );
 
-// Map project IDs to specific images that match their themes
 const projectImages: Record<number, string> = {
     1: '/images/previews/evergreen.webp',
     2: '/images/previews/halalchain.webp',
@@ -50,162 +46,129 @@ const galleryItems: {
     title: string;
     description: string;
     tags: string[];
-    size: string;
     link: string;
     image: string;
     featured?: boolean;
 }[] = [
     ...projects.map((project) => ({
-        ...project,
+        id: project.id,
+        title: project.title,
+        description: project.description,
+        tags: project.tags,
+        link: project.link,
+        featured: project.featured,
         image: projectImages[project.id] || '/images/work.jpg',
     })),
-    ...galleryArchive,
+    ...galleryArchive.map((item) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        tags: item.tags,
+        link: item.link,
+        image: item.image,
+    })),
 ];
 
 export default function GalleryPage() {
     return (
-        <>
-            <Navigation />
+        <SiteFrame active="gallery">
+            <div className="mb-12">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">
+                    Gallery
+                </h2>
+                <p className="mt-4 max-w-md text-slate-400" style={{ lineHeight: '1.625' }}>
+                    Selected projects, photos, and activity.
+                </p>
+            </div>
 
-            <main className="pt-32 pb-24 min-h-screen">
-                <Container size="wide">
-                    {/* Header */}
-                    <div className="mb-16">
-                        <p className="font-mono text-[var(--accent)] mb-4">// gallery</p>
-                        <h1 className="text-4xl md:text-5xl font-bold text-[var(--slate-light)] mb-4">
-                            Project Archive
-                        </h1>
-                        <p className="text-[var(--slate)] max-w-xl text-lg leading-relaxed">
-                            Selected projects in distributed systems, applied cryptography, and production software.
-                        </p>
-                    </div>
+            <div className="flex flex-col gap-6">
+                {galleryItems.map((project) => {
+                    const backgroundImage = encodeURI(project.image);
+                    const hasLink = Boolean(project.link && project.link !== '#');
 
-                    {/* Bento Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]" style={{ gridAutoFlow: 'dense' }}>
-                        {galleryItems.map((project) => {
-                            // Map project sizes to grid classes
-                            const sizeClasses = {
-                                large: 'md:col-span-2 md:row-span-2',
-                                vertical: 'md:row-span-2',
-                                wide: 'md:col-span-2',
-                                square: '',
-                            };
-
-                            const backgroundImage = encodeURI(project.image);
-                            const hasLink = Boolean(project.link && project.link !== '#');
-
-                            return (
-                                <article
-                                    key={project.id}
-                                    className={cn(
-                                        'group relative flex flex-col overflow-hidden',
-                                        'rounded-lg p-8',
-                                        'border border-[var(--navy-lighter)]/50',
-                                        'hover:border-[var(--accent)]/30 hover:-translate-y-2',
-                                        'transition-all duration-300 ease-out',
-                                        'hover:shadow-xl hover:shadow-[var(--shadow-color)]',
-                                        sizeClasses[project.size as keyof typeof sizeClasses]
-                                    )}
-                                    style={{
-                                        backgroundImage: `url("${backgroundImage}")`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                        backgroundRepeat: 'no-repeat',
-                                    }}
-                                >
-                                    {/* Gradient overlay: dark at top and bottom, transparent in middle */}
-                                    <div 
-                                        className="absolute inset-0 transition-opacity duration-300"
-                                        style={{
-                                            background: `linear-gradient(
-                                                to bottom,
-                                                rgba(30, 41, 59, 0.95) 10%,
-                                                rgba(30, 41, 59, 0.85) 25%,
-                                                rgba(30, 41, 59, 0.3) 45%,
-                                                rgba(30, 41, 59, 0.3) 55%,
-                                                rgba(30, 41, 59, 0.85) 78%,
-                                                rgba(30, 41, 59, 0.95) 80%
-                                            )`
-                                        }}
-                                    />
-
-                                    {/* Content - relative z-index to appear above background */}
-                                    <div className="relative z-10 flex flex-col h-full">
-                                        {/* Top row - folder and links */}
-                                        <div className="flex items-center justify-between mb-6">
-                                            <span className="text-[var(--accent)]">
-                                                <FolderIcon />
-                                            </span>
-
-                                            {hasLink && (
-                                                <div className="flex items-center gap-4">
-                                                    <Link
-                                                        href={project.link}
-                                                        className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
-                                                        aria-label="View on GitHub"
-                                                    >
-                                                        <GitHubIcon />
-                                                    </Link>
-                                                    <Link
-                                                        href={project.link}
-                                                        className="text-[var(--slate)] hover:text-[var(--accent)] transition-colors"
-                                                        aria-label="Read Blog Post"
-                                                    >
-                                                        <ExternalLinkIcon />
-                                                    </Link>
-                                                </div>
-                                            )}
-                                        </div>
-
-                                        {/* Project Title */}
-                                        <h3 className="text-2xl font-bold text-[var(--slate-light)] mb-3 group-hover:text-[var(--accent)] transition-colors">
-                                            <Link href={project.link || '#'}>
-                                                {project.title}
-                                            </Link>
-                                        </h3>
-
-                                        {/* Description */}
-                                        <p className="text-[var(--slate)] text-base leading-relaxed flex-grow mb-6">
-                                            {project.description}
-                                        </p>
-
-                                        {/* Tags */}
-                                        <div className="flex flex-wrap gap-2 mt-auto">
-                                            {project.tags.map((tag) => (
-                                                <span
-                                                    key={tag}
-                                                    className="text-xs font-mono text-[var(--accent)]/90 bg-[var(--accent)]/10 px-2.5 py-1 rounded-full"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Featured badge for large cards */}
-                                    {project.featured && (
-                                        <div className="absolute top-0 right-0 z-20 px-3 py-1 bg-[var(--accent)] text-[var(--navy)] font-mono text-xs font-bold uppercase tracking-wider rounded-bl-lg rounded-tr-lg">
-                                            Featured
-                                        </div>
-                                    )}
-                                </article>
-                            );
-                        })}
-                    </div>
-
-                    {/* Back to home */}
-                    <div className="mt-20 text-center">
-                        <Link
-                            href="/"
-                            className="font-mono text-sm text-[var(--accent)] hover:underline underline-offset-4"
+                    return (
+                        <article
+                            key={project.id}
+                            className="group relative flex min-h-72 flex-col overflow-hidden rounded-lg border border-slate-700/50 p-8 transition duration-300 hover:-translate-y-1 hover:border-teal-300/30"
+                            style={{
+                                backgroundImage: `url("${backgroundImage}")`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                            }}
                         >
-                            ← Back to Home
-                        </Link>
-                    </div>
-                </Container>
-            </main>
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    background: `linear-gradient(
+                                        to bottom,
+                                        rgba(30, 41, 59, 0.95) 10%,
+                                        rgba(30, 41, 59, 0.85) 25%,
+                                        rgba(30, 41, 59, 0.3) 45%,
+                                        rgba(30, 41, 59, 0.3) 55%,
+                                        rgba(30, 41, 59, 0.85) 78%,
+                                        rgba(30, 41, 59, 0.95) 80%
+                                    )`,
+                                }}
+                            />
 
-            <Footer />
-        </>
+                            <div className="relative z-10 flex h-full flex-col">
+                                <div className="mb-6 flex items-center justify-between">
+                                    <span className="text-teal-300">
+                                        <FolderIcon />
+                                    </span>
+
+                                    {hasLink && (
+                                        <div className="flex items-center gap-4">
+                                            <Link
+                                                href={project.link}
+                                                className="text-slate-400 hover:text-teal-300"
+                                                aria-label="View on GitHub"
+                                            >
+                                                <GitHubIcon />
+                                            </Link>
+                                            <Link
+                                                href={project.link}
+                                                className="text-slate-400 hover:text-teal-300"
+                                                aria-label="Open project"
+                                            >
+                                                <ExternalLinkIcon />
+                                            </Link>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <h3 className="mb-3 text-2xl font-bold text-slate-200 group-hover:text-teal-300">
+                                    <Link href={project.link || '#'}>
+                                        {project.title}
+                                    </Link>
+                                </h3>
+
+                                <p className="mb-6 flex-grow text-base leading-relaxed text-slate-400">
+                                    {project.description}
+                                </p>
+
+                                <div className="mt-auto flex flex-wrap gap-2">
+                                    {project.tags.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="rounded-full bg-teal-300/10 px-2.5 py-1 font-mono text-xs text-teal-300/90"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {project.featured && (
+                                <div className="absolute right-0 top-0 z-20 rounded-bl-lg rounded-tr-lg bg-teal-300 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-slate-900">
+                                    Featured
+                                </div>
+                            )}
+                        </article>
+                    );
+                })}
+            </div>
+        </SiteFrame>
     );
 }

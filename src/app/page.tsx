@@ -462,7 +462,7 @@ export default function HomePage() {
                 {/* View Archive Link */}
                 <div style={{ marginTop: '3rem' }}>
                   <a
-                    href="/blog/"
+                    href="/projects/"
                     className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
                   >
                     <span>
