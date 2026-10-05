@@ -64,7 +64,7 @@ export const projects = [
         description: 'Agentic AI platform (Hermes workflow) for vulnerability detection in Solana smart contracts. Daemon Protocol.',
         tags: ['Solana', 'AI', 'Security'],
         size: 'square',
-        link: 'https://github.com/Fatihmaull/ARES',
+        link: 'https://aressystem.dev/',
     },
     {
         id: 4,
