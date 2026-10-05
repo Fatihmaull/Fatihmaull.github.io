@@ -445,7 +445,7 @@ export const galleryArchive = [
     {
         id: 119,
         title: 'Bachelor of Science in Informatics Engineering',
-        description: 'UIN Sunan Gunung Djati Bandung, 2023 – 2027. GPA 3.96 / 4.0. Focus: distributed computing, cybersecurity, blockchain, and networks.',
+        description: 'UIN Sunan Gunung Djati Bandung, 2023 – 2027. GPA 3.84 / 4.00. Focus: distributed computing, cybersecurity, blockchain, and networks.',
         tags: ['Education'],
         size: 'square',
         link: '#',
@@ -453,8 +453,8 @@ export const galleryArchive = [
     },
     {
         id: 120,
-        title: 'International Student Exchange Program',
-        description: 'Northern University of Malaysia (UUM), 2025 – 2026. Software development management, cybersecurity, blockchain, and IT resource governance.',
+        title: 'Bachelor of Computer Science with Honors (Exchange Program)',
+        description: 'Universiti Utara Malaysia (UUM), 2025 – 2026. Focus: artificial intelligence, software development management, cybersecurity, blockchain, and IT resource management.',
         tags: ['Education', 'UUM'],
         size: 'square',
         link: '#',
@@ -463,7 +463,7 @@ export const galleryArchive = [
     {
         id: 121,
         title: 'Harvard CS50: Introduction to Computer Science',
-        description: 'edX, David J. Malan, 2023 – 2024. Algorithmic problem-solving, data structures, and C.',
+        description: 'Harvard/edX, Dec 2024 – Dec 2025. Algorithmic problem-solving, data structures, and C.',
         tags: ['Education'],
         size: 'square',
         link: '#',
